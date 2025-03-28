@@ -20,8 +20,11 @@ class Pedido extends Model {
     }
 
     static associate(models) {
-
-    }
+        models.Entrega.belongsTo(models.Pedido, {
+            foreignKey: 'refeicaoId',
+            as: 'refeicao',
+        });
+      }
 }
 
 export { Pedido };
