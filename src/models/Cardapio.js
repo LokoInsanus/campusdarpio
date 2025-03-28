@@ -26,7 +26,8 @@ class Cardapio extends Model {
   }
 
   static associate(models) {
-
+    this.belongsToMany(models.bebida, { as: "bebidas", through: "cardapio_bebida", onDelete: "CASCADE", onUpdate: "CASCADE" });
+    this.belongsToMany(models.refeicao, { as: "refeicoes", through: "cardapio_refeicao", onDelete: "CASCADE", onUpdate: "CASCADE" });
   }
 }
 
