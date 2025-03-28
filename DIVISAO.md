@@ -10,4 +10,5 @@ MARCELO -
 ROGER - 
     Bebida
     Bloco já foi de katchau
+    TipoRefeicao já foi de katchau
     Cardapio
