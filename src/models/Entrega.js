@@ -3,12 +3,12 @@ import {Model, DataTypes} from 'sequelize';
 class Entrega extends Model {
     static init(sequelize) {
         super.init({
-            pedidoId: DataTypes.INTEGER,
+            pedido: DataTypes.INTEGER,
             validate: {
                 notNull: true,
                 notEmpty: true,
             },
-            entregadorId: DataTypes.INTEGER,
+            entregador: DataTypes.INTEGER,
             validate: {
                 notNull: true,
                 notEmpty: true,
