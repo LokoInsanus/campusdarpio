@@ -8,7 +8,7 @@ MARCELO -
     Cliente
     Entrega
 ROGER - 
-    Bebida
+    Bebida já foi de katchau
     Bloco já foi de katchau
     TipoRefeicao já foi de katchau
-    Cardapio
+    Cardapio já foi de katchau
