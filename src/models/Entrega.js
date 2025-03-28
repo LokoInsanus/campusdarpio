@@ -4,7 +4,27 @@ class Entrega extends Model {
     static init(sequelize) {
         super.init({
             pedidoId: DataTypes.INTEGER,
+            validate: {
+                notNull: true,
+                notEmpty: true,
+            },
             entregadorId: DataTypes.INTEGER,
+            validate: {
+                notNull: true,
+                notEmpty: true,
+            },
+            inicio_entrega: DataTypes.DATE,
+            validate: {
+                notNull: true,
+                notEmpty: true,
+                isDate: true,
+            },
+            fim_entrega: DataTypes.DATE,
+            validate: {
+                notNull: true,
+                notEmpty: true,
+                isDate: true,
+            },
         }, {
             sequelize,
             modelName: 'Entrega',
