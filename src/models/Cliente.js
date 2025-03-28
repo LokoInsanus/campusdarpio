@@ -1,4 +1,4 @@
-import {Model, DataTypes} from 'sequelize';
+import { Model, DataTypes } from 'sequelize';
 
 class Cliente extends Model {
     static init(sequelize) {
@@ -17,7 +17,7 @@ class Cliente extends Model {
     }
 
     static associate(models) {
-        
+
     }
 }
 
