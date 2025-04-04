@@ -39,3 +39,5 @@ ClienteService = class ClienteService {
         }
     }
 }
+
+export { ClienteService };
