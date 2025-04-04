@@ -3,38 +3,45 @@ import { Model, DataTypes } from 'sequelize';
 class Cliente extends Model {
     static init(sequelize) {
         super.init({
-            nome: DataTypes.STRING,
+            nome: {
+            type: DataTypes.STRING,
+            allowNull: false,
             validate: {
-                notNull: true,
-                notEmpty: true,
+                notNull: { msg: 'O nome não pode ser nulo' },
+                notEmpty: { msg: 'O nome não pode estar vazio' },
             },
-            cpf: DataTypes.STRING,
-            validate: {
-                notNull: true,
-                notEmpty: true,
-                is: /^[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}$/,
             },
-            cargo: DataTypes.STRING,
+            cpf: {
+            type: DataTypes.STRING,
+            allowNull: false,
             validate: {
-                notNull: true,
-                notEmpty: true,
+                notNull: { msg: 'O CPF não pode ser nulo' },
+                notEmpty: { msg: 'O CPF não pode estar vazio' },
+                is: {
+                args: /^[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}$/,
+                msg: 'O CPF deve estar no formato válido',
+                },
             },
-            telefone: DataTypes.STRING,
-            validate: {
-                notNull: true,
-                notEmpty: true,
-                is: /^\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}$/,
             },
-            endereco: DataTypes.STRING,
+            cargo: {
+            type: DataTypes.STRING,
+            allowNull: false,
             validate: {
-                notNull: true,
-                notEmpty: true,
+                notNull: { msg: 'O cargo não pode ser nulo' },
+                notEmpty: { msg: 'O cargo não pode estar vazio' },
             },
-            status: DataTypes.STRING,
+            },
+            telefone: {
+            type: DataTypes.STRING,
+            allowNull: false,
             validate: {
-                notNull: true,
-                notEmpty: true,
-                isIn: [['ativo', 'inativo']],
+                notNull: { msg: 'O telefone não pode ser nulo' },
+                notEmpty: { msg: 'O telefone não pode estar vazio' },
+                is: {
+                args: /^[0-9]{10,11}$/,
+                msg: 'O telefone deve conter 10 ou 11 dígitos numéricos',
+                },
+            },
             },
         }, {
             sequelize,

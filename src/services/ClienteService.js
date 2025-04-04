@@ -1,6 +1,6 @@
 import { Cliente } from "../models/Cliente.js";
 
-ClienteService = class ClienteService {
+class ClienteService {
     static async findAll() {
         const objs = await Cliente.findAll({ include: { all: true, nested: true } });
         return objs;

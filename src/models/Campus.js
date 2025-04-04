@@ -3,27 +3,38 @@ import { Model, DataTypes } from 'sequelize';
 class Campus extends Model {
     static init(sequelize) {
         super.init({
-            campusId: DataTypes.INTEGER,
+            nome: {
+            type: DataTypes.STRING,
+            allowNull: false,
             validate: {
                 notNull: true,
                 notEmpty: true,
+            }
             },
-            nome: DataTypes.STRING,
+            endereco: {
+            type: DataTypes.STRING,
+            allowNull: false,
             validate: {
                 notNull: true,
                 notEmpty: true,
+            }
             },
-            endereco: DataTypes.STRING,
+            quantidadeBlocos: {
+            type: DataTypes.STRING,
+            allowNull: false,
             validate: {
                 notNull: true,
                 notEmpty: true,
+            }
             },
-            quantidadeBlocos: DataTypes.STRING,
+            status: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
             validate: {
                 notNull: true,
                 notEmpty: true,
-            },
-            status: DataType.BOOLEAN
+            }
+            }
         }, {
             sequelize,
             modelName: 'Campus',

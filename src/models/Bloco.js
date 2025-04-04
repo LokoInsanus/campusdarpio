@@ -1,4 +1,5 @@
 import { Model, DataTypes } from 'sequelize';
+import { Campus } from './Campus.js'; // Certifique-se de que o arquivo Campus.js existe no mesmo diretório
 
 class Bloco extends Model {
 
@@ -13,7 +14,7 @@ class Bloco extends Model {
       },
       tipo: {
         type: DataTypes.ENUM("0", "1", "2", "3"),
-        defaultvalue: "0",
+        defaultValue: "0",
         validate: {
           isIn: {
             args: [["0", "1", "2", "3"]], // "0" para Bloco de Aulas // "1" para Bloco Administrativo // "2" para Bloco de Laboratório // "3" para Bloco da Incubadora
@@ -38,7 +39,20 @@ class Bloco extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.campus, { as: 'campus', foreignKey: { name: 'campusId', allowNull: false, validate: { notNull: { msg: 'Campus do Bloco deve ser preenchida!' } } } });
+    if (models.Campus || Campus) { // Verifica se o modelo Campus está disponível
+      this.belongsTo(models.Campus || Campus, { 
+        as: 'campus', 
+        foreignKey: { 
+          name: 'campusId', 
+          allowNull: false, 
+          validate: { 
+            notNull: { msg: 'Campus do Bloco deve ser preenchida!' } 
+          } 
+        } 
+      });
+    } else {
+      console.warn("O modelo 'Campus' não foi definido. Verifique se ele foi importado e inicializado corretamente.");
+    }
   }
 
 }

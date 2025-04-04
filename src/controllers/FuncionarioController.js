@@ -32,4 +32,4 @@ class FuncionarioController {
     }
 }
 
-export default FuncionarioController;
+export { FuncionarioController };

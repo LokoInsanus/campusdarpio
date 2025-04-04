@@ -1,34 +1,34 @@
 import { Model, DataTypes } from 'sequelize';
 
 class Cardapio extends Model {
+    static init(sequelize) {
+        super.init({
+            data: {
+                type: DataTypes.DATE,
+                allowNull: false,
+                validate: {
+                    notNull: { msg: "O campo 'data' não pode ser nulo!" },
+                    notEmpty: { msg: "O campo 'data' não pode estar vazio!" }
+                }
+            },
+            descricao: {
+                type: DataTypes.STRING,
+                allowNull: false,
+                validate: {
+                    notNull: { msg: "O campo 'descricao' não pode ser nulo!" },
+                    notEmpty: { msg: "O campo 'descricao' não pode estar vazio!" }
+                }
+            }
+        }, {
+            sequelize,
+            modelName: 'Cardapio',
+            tableName: 'cardapios'
+        });
+    }
 
-  static init(sequelize) {
-    super.init({
-      data: {
-        type: DataTypes.DATEONLY,
-        validate: {
-          isDate: true,
-          // a data deve ser automaticamente preenchida a do dia.
-        }
-      },
-      // tem que fazer refeicao e bebida virar uma lista.
-      refeicao: DataTypes.INTEGER,
-      validate: {
-        notNull: true,
-        notEmpty: true,
-      },
-      bebida: DataTypes.INTEGER,
-      validate: {
-        notNull: true,
-        notEmpty: true,
-      },
-    }, { sequelize, modelName: "cardapio", tableName: "cardapios" });
-  }
-
-  static associate(models) {
-    this.belongsToMany(models.bebida, { as: "bebidas", through: "cardapio_bebida", onDelete: "CASCADE", onUpdate: "CASCADE" });
-    this.belongsToMany(models.refeicao, { as: "refeicoes", through: "cardapio_refeicao", onDelete: "CASCADE", onUpdate: "CASCADE" });
-  }
+    static associate(models) {
+        // Defina as associações aqui, se necessário
+    }
 }
 
 export { Cardapio };

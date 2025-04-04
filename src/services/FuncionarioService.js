@@ -40,3 +40,5 @@ class FuncionarioService {
         }
     }
 }
+
+export { FuncionarioService };

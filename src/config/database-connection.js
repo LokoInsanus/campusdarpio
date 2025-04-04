@@ -27,9 +27,9 @@ Pedido.init(sequelize);
 Refeicao.init(sequelize);
 TipoDeRefeicao.init(sequelize);
 
-Bebida.associate(sequelize.models);
-Bloco.associate(sequelize.models);
 Campus.associate(sequelize.models);
+Bloco.associate(sequelize.models);
+Bebida.associate(sequelize.models);
 Cardapio.associate(sequelize.models);
 Cliente.associate(sequelize.models);
 Entrega.associate(sequelize.models);
@@ -39,7 +39,7 @@ Pedido.associate(sequelize.models);
 Refeicao.associate(sequelize.models);
 TipoDeRefeicao.associate(sequelize.models);
 
-databaseInserts();
+// databaseInserts();
 
 function databaseInserts() {
     (async () => {

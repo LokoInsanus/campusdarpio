@@ -1,60 +1,96 @@
-import {Model, DataTypes} from 'sequelize';
+import { Model, DataTypes } from 'sequelize';
 
 class Entregador extends Model {
     static init(sequelize) {
-        super.init({
-            nome: DataTypes.STRING,
-            validate: {
-                notNull: true,
-                notEmpty: true,
+        super.init(
+            {
+                nome: {
+                    type: DataTypes.STRING,
+                    allowNull: false,
+                    validate: {
+                        notNull: { msg: 'O nome não pode ser nulo' },
+                        notEmpty: { msg: 'O nome não pode estar vazio' },
+                    },
+                },
+                cpf: {
+                    type: DataTypes.STRING,
+                    allowNull: false,
+                    validate: {
+                        notNull: { msg: 'O CPF não pode ser nulo' },
+                        notEmpty: { msg: 'O CPF não pode estar vazio' },
+                        is: {
+                            args: /^[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}$/,
+                            msg: 'O CPF deve estar no formato válido',
+                        },
+                    },
+                },
+                cargo: {
+                    type: DataTypes.STRING,
+                    allowNull: false,
+                    validate: {
+                        notNull: { msg: 'O cargo não pode ser nulo' },
+                        notEmpty: { msg: 'O cargo não pode estar vazio' },
+                    },
+                },
+                telefone: {
+                    type: DataTypes.STRING,
+                    allowNull: false,
+                    validate: {
+                        notNull: { msg: 'O telefone não pode ser nulo' },
+                        notEmpty: { msg: 'O telefone não pode estar vazio' },
+                        is: {
+                            args: /^\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}$/,
+                            msg: 'O telefone deve estar no formato válido',
+                        },
+                    },
+                },
+                endereco: {
+                    type: DataTypes.STRING,
+                    allowNull: false,
+                    validate: {
+                        notNull: { msg: 'O endereço não pode ser nulo' },
+                        notEmpty: { msg: 'O endereço não pode estar vazio' },
+                    },
+                },
+                cnh: {
+                    type: DataTypes.STRING,
+                    allowNull: false,
+                    validate: {
+                        notNull: { msg: 'A CNH não pode ser nula' },
+                        notEmpty: { msg: 'A CNH não pode estar vazia' },
+                    },
+                },
+                veiculo: {
+                    type: DataTypes.STRING,
+                    allowNull: false,
+                    validate: {
+                        notNull: { msg: 'O veículo não pode ser nulo' },
+                        notEmpty: { msg: 'O veículo não pode estar vazio' },
+                    },
+                },
+                status: {
+                    type: DataTypes.STRING,
+                    allowNull: false,
+                    validate: {
+                        notNull: { msg: 'O status não pode ser nulo' },
+                        notEmpty: { msg: 'O status não pode estar vazio' },
+                        isIn: {
+                            args: [['ativo', 'inativo']],
+                            msg: 'O status deve ser "ativo" ou "inativo"',
+                        },
+                    },
+                },
             },
-            cpf: DataTypes.STRING,
-            validate: {
-                notNull: true,
-                notEmpty: true,
-                is: /^[0-9]{3}\.?[0-9]{3}\.?[0-9]{3}\-?[0-9]{2}$/,
-            },
-            cargo: DataTypes.STRING,
-            validate: {
-                notNull: true,
-                notEmpty: true,
-            },
-            telefone: DataTypes.STRING,
-            validate: {
-                notNull: true,
-                notEmpty: true,
-                is: /^\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}$/,
-            },
-            endereco: DataTypes.STRING,
-            validate: {
-                notNull: true,
-                notEmpty: true,
-            },
-            cnh: DataTypes.STRING,
-            validate: {
-                notNull: true,
-                notEmpty: true,
-            },
-            veiculo: DataTypes.STRING,
-            validate: {
-                notNull: true,
-                notEmpty: true,
-            },
-            status: DataTypes.STRING,
-            validate: {
-                notNull: true,
-                notEmpty: true,
-                isIn: [['ativo', 'inativo']],
-            },
-        }, {
-            sequelize,
-            modelName: 'Entregador',
-            tableName: 'entregadors',
-        });
+            {
+                sequelize,
+                modelName: 'Entregador',
+                tableName: 'entregadors',
+            }
+        );
     }
 
     static associate(models) {
-        
+        // Defina as associações aqui, se necessário
     }
 }
 

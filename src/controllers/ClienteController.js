@@ -1,4 +1,4 @@
-import {ClienteService} from '../services/ClienteService.js';
+import { ClienteService } from '../services/ClienteService.js';
 
 class ClienteController {
     static async findAll(req, res, next) {
@@ -32,4 +32,4 @@ class ClienteController {
     }
 }
 
-export default ClienteController;
+export { ClienteController };

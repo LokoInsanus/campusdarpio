@@ -12,7 +12,7 @@ class Bebida extends Model {
         }
       },
       tipo: {
-        type: DataTypes.ENUM(),
+        type: DataTypes.ENUM("0", "1", "2", "3"),
         defaultvalue: "0",
         validade: {
           isIn: {
@@ -28,7 +28,7 @@ class Bebida extends Model {
         }
       },
       quantidade: {
-        type: dataTypes.INTEGER,
+        type: DataTypes.INTEGER,
         defaultValue: 0,
         allowNull: false,
         validade: {

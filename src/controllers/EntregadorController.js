@@ -32,4 +32,4 @@ class EntregadorController {
     }
 }
 
-export default EntregadorController;
+export { EntregadorController } ;

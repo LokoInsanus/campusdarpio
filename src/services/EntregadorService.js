@@ -41,4 +41,4 @@ class EntregadorService {
 
 }
 
-export default new EntregadorService();
+export { EntregadorService } ;
