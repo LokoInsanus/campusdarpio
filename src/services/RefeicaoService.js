@@ -15,8 +15,8 @@ class RefeicaoService {
         return obj;
     }
 
-    static async create(req) {
-        const { nome, tipo, preco, quantidade } = req.body;
+    static async create(req) { 
+        const { nome, tipo, preco, quantidade } = req.body; //Acertar FK TIPO
         const obj = await Refeicao.create({ nome, tipo, preco, quantidade });
         return await Refeicao.findByPk(obj.id, { include: { all: true, nested: true } });
     }
