@@ -149,7 +149,19 @@
 					"name": "Cliente",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/Cliente/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Cliente",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
@@ -157,7 +169,18 @@
 					"name": "Listar Clientes",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/Cliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Cliente"
+							]
+						}
 					},
 					"response": []
 				},
@@ -165,7 +188,55 @@
 					"name": "Cadastrar Cliente",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Marcelo\",\r\n  \"cpf\": \"12345678910\",\r\n  \"telefone\": \"28999123456\",\r\n  \"endereco\": \"Rua das ruas\",\r\n  \"status\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Cliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Cliente Erro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Marcelo\",\r\n  \"cpf\": \"\",\r\n  \"telefone\": \"28999123456\",\r\n  \"endereco\": \"Rua das ruas\",\r\n  \"status\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Cliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Cliente"
+							]
+						}
 					},
 					"response": []
 				},
@@ -173,7 +244,28 @@
 					"name": "Alterar Cliente",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Otario\",\r\n  \"cpf\": \"12345678910\",\r\n  \"telefone\": \"28999123456\",\r\n  \"endereco\": \"Rua das ruas\",\r\n  \"status\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Cliente/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Cliente",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
@@ -181,7 +273,19 @@
 					"name": "Deletar Cliente",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/Cliente/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Cliente",
+								"2"
+							]
+						}
 					},
 					"response": []
 				}
@@ -194,7 +298,19 @@
 					"name": "Entregador",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/Entregador/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Entregador",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
@@ -202,7 +318,18 @@
 					"name": "Listar Entregadores",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/Entregador",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Entregador"
+							]
+						}
 					},
 					"response": []
 				},
@@ -210,7 +337,27 @@
 					"name": "Cadastrar Entregador",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Entregador",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Entregador"
+							]
+						}
 					},
 					"response": []
 				},
@@ -218,7 +365,19 @@
 					"name": "Alterar Entregador",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/Entregador/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Entregador",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
@@ -226,7 +385,19 @@
 					"name": "Deletar Entregador",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/Entregador/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Entregador",
+								"2"
+							]
+						}
 					},
 					"response": []
 				}

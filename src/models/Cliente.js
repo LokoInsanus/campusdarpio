@@ -11,6 +11,14 @@ class Cliente extends Model {
                 notEmpty: { msg: 'O nome não pode estar vazio' },
             },
             },
+            endereco: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notNull: { msg: 'O endereço não pode ser nulo' },
+                notEmpty: { msg: 'O endereço não pode estar vazio' },
+            },
+            },
             cpf: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -23,24 +31,12 @@ class Cliente extends Model {
                 },
             },
             },
-            cargo: {
-            type: DataTypes.STRING,
+            status: {
+            type: DataTypes.BOOLEAN,
             allowNull: false,
+            defaultValue: true,
             validate: {
-                notNull: { msg: 'O cargo não pode ser nulo' },
-                notEmpty: { msg: 'O cargo não pode estar vazio' },
-            },
-            },
-            telefone: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                notNull: { msg: 'O telefone não pode ser nulo' },
-                notEmpty: { msg: 'O telefone não pode estar vazio' },
-                is: {
-                args: /^[0-9]{10,11}$/,
-                msg: 'O telefone deve conter 10 ou 11 dígitos numéricos',
-                },
+                notNull: { msg: 'O status não pode ser nulo' },
             },
             },
         }, {
