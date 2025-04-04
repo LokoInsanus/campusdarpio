@@ -31,3 +31,5 @@ class ClienteController {
             .catch(next);
     }
 }
+
+export default ClienteController;
