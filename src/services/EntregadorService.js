@@ -1,5 +1,7 @@
 import { Entregador } from "../models/Entregador.js";
 
+// Marcelo de Oliveira Costa Pereira
+
 class EntregadorService {
     static async findAll() {
         const objs = await Entregador.findAll({ include: { all: true, nested: true } });

@@ -1,5 +1,7 @@
 import { FuncionarioService } from "../services/FuncionarioService.js";
 
+// Marcelo de Oliveira Costa Pereira
+
 class FuncionarioController {
     static async findAll(req, res, next) {
         FuncionarioService.findAll()

@@ -1,5 +1,7 @@
 import { Funcionario } from "../models/Funcionario.js";
 
+// Marcelo de Oliveira Costa Pereira
+
 class FuncionarioService {
   
     static async findAll() {
