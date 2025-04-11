@@ -1,13 +1,13 @@
 import express from "express";
 
-// import { BebidaController } from "./controllers/BebidaController.js";
-// import { BlocoController } from "./controllers/BlocoController.js";
+import { BebidaController } from "./controllers/BebidaController.js";
+import { BlocoController } from "./controllers/BlocoController.js";
 import { CampusController } from "./controllers/CampusController.js";
 import { ClienteController } from "./controllers/ClienteController.js";
 import { EntregadorController } from "./controllers/EntregadorController.js";
 import { FuncionarioController } from "./controllers/FuncionarioController.js";
 import { RefeicaoController } from "./controllers/RefeicaoController.js";
-// import { TipoDeRefeicaoController } from "./controllers/TipoDeRefeicaoController.js";
+import { TipoDeRefeicaoController } from "./controllers/TipoDeRefeicaoController.js";
 
 const routes = express.Router();
 
@@ -40,5 +40,23 @@ routes.get("/Refeicao/:id", RefeicaoController.findByPk);
 routes.post("/Refeicao", RefeicaoController.create);
 routes.put("/Refeicao/:id", RefeicaoController.update);
 routes.delete("/Refeicao/:id", RefeicaoController.delete);
+
+routes.get("/Bebida", BebidaController.findAll);
+routes.get("/Bebida/:id", BebidaController.findByPk);
+routes.post("/Bebida", BebidaController.create);
+routes.put("/Bebida/:id", BebidaController.update);
+routes.delete("/Bebida/:id", BebidaController.delete);
+
+routes.get("/Bloco", BlocoController.findAll);
+routes.get("/Bloco/:id", BlocoController.findByPk);
+routes.post("/Bloco", BlocoController.create);
+routes.put("/Bloco/:id", BlocoController.update);
+routes.delete("/Bloco/:id", BlocoController.delete);
+
+routes.get("/TipoDeRefeicao", TipoDeRefeicaoController.findAll);
+routes.get("/TipoDeRefeicao/:id", TipoDeRefeicaoController.findByPk);
+routes.post("/TipoDeRefeicao", TipoDeRefeicaoController.create);
+routes.put("/TipoDeRefeicao/:id", TipoDeRefeicaoController.update);
+routes.delete("/TipoDeRefeicao/:id", TipoDeRefeicaoController.delete);
 
 export default routes;
