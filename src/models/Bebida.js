@@ -12,9 +12,9 @@ class Bebida extends Model {
         }
       },
       tipo: {
-        type: DataTypes.ENUM("0", "1", "2", "3"),
+        type: DataTypes.ENUM ("0", "1", "2", "3"),
         defaultvalue: "0",
-        validade: {
+        validate: {
           isIn: {
             args: [["0", "1", "2", "3"]], // "0" para Refrigerante // "1" para Suco natural // "2" para Chá // "3" para Café
             msg: "Tipo da Bebida deve ser 0, 1, 2 ou 3!"
@@ -31,7 +31,7 @@ class Bebida extends Model {
         type: DataTypes.INTEGER,
         defaultValue: 0,
         allowNull: false,
-        validade: {
+        validate: {
           zero(value) {
             if (this.isNewRecord && value !== 0) {
               throw new Error("A quantidade deve ser 0 no momento do cadastro!");
