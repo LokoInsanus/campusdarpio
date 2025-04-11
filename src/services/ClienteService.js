@@ -13,17 +13,17 @@ class ClienteService {
     }
 
     static async create(req) {
-        const { nome, cpf, telefone, email, endereco } = req.body; // Ajuste os atributos conforme o modelo
-        const obj = await Cliente.create({ nome, cpf, telefone, email, endereco });
+        const { nome, cpf, telefone, endereco, status } = req.body; // Ajuste os atributos conforme o modelo
+        const obj = await Cliente.create({ nome, cpf, telefone, endereco, status });
         return await Cliente.findByPk(obj.id, { include: { all: true, nested: true } });
     }
 
     static async update(req) {
         const { id } = req.params;
-        const { nome, cpf, telefone, email, endereco } = req.body; // Ajuste os atributos conforme o modelo
+        const { nome, cpf, telefone, endereco, status } = req.body; // Ajuste os atributos conforme o modelo
         const obj = await Cliente.findByPk(id, { include: { all: true, nested: true } });
         if (obj == null) throw new Error("Cliente não encontrado");
-        Object.assign(obj, { nome, cpf, telefone, email, endereco });
+        Object.assign(obj, { nome, cpf, telefone, endereco, status });
         await obj.save();
         return await Cliente.findByPk(id, { include: { all: true, nested: true } });
     }

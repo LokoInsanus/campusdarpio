@@ -2,31 +2,31 @@ import { FuncionarioService } from "../services/FuncionarioService.js";
 
 class FuncionarioController {
     static async findAll(req, res, next) {
-        FuncionarioController.findAll()
+        FuncionarioService.findAll()
             .then((objs) => res.json(objs))
             .catch(next);
     }
 
     static async findByPk(req, res, next) {
-        FuncionarioController.findByPk(req)
+        FuncionarioService.findByPk(req)
             .then((obj) => res.json(obj))
             .catch(next);
     }
 
     static async create(req, res, next) {
-        FuncionarioController.create(req)
+        FuncionarioService.create(req)
             .then((obj) => res.status(201).json(obj))
             .catch(next);
     }
 
     static async update(req, res, next) {
-        FuncionarioController.update(req)
+        FuncionarioService.update(req)
             .then((obj) => res.json(obj))
             .catch(next);
     }
 
     static async delete(req, res, next) {
-        FuncionarioController.delete(req)
+        FuncionarioService.delete(req)
             .then(() => res.status(204).send())
             .catch(next);
     }

@@ -24,14 +24,6 @@ class Entregador extends Model {
                         },
                     },
                 },
-                cargo: {
-                    type: DataTypes.STRING,
-                    allowNull: false,
-                    validate: {
-                        notNull: { msg: 'O cargo não pode ser nulo' },
-                        notEmpty: { msg: 'O cargo não pode estar vazio' },
-                    },
-                },
                 telefone: {
                     type: DataTypes.STRING,
                     allowNull: false,

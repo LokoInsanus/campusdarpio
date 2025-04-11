@@ -13,17 +13,17 @@ class EntregadorService {
     }
 
     static async create(req) {
-        const { nome, cpf, telefone, endereco, data_de_emissao } = req.body;
-        const obj = await Entregador.create({ nome, cpf, telefone, endereco, data_de_emissao });
+        const { nome, cpf, telefone, endereco, veiculo, cnh, status } = req.body;
+        const obj = await Entregador.create({ nome, cpf, telefone, endereco, veiculo, cnh, status });
         return await Entregador.findByPk(obj.id, { include: { all: true, nested: true } });
     }
 
     static async update(req) {
         const { id } = req.params;
-        const { nome, cpf, telefone, endereco, data_de_emissao } = req.body;
+        const { nome, cpf, telefone, endereco, veiculo, cnh, status } = req.body;
         const obj = await Entregador.findByPk(id, { include: { all: true, nested: true } });
         if (obj == null) throw new Error("Entregador não encontrado");
-        Object.assign(obj, { nome, cpf, telefone, endereco, data_de_emissao });
+        Object.assign(obj, { nome, cpf, telefone, endereco, veiculo, cnh, status });
         await obj.save();
         return await Entregador.findByPk(id, { include: { all: true, nested: true } });
     }
