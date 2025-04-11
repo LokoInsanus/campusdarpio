@@ -1,5 +1,7 @@
 import { EntregadorService } from '../services/EntregadorService.js';
 
+// Marcelo de Oliveira Costa Pereira
+
 class EntregadorController {
     static async findAll(req, res, next) {
         EntregadorService.findAll()

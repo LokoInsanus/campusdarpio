@@ -1,5 +1,7 @@
 import { Cliente } from "../models/Cliente.js";
 
+// Marcelo de Oliveira Costa Pereira
+
 class ClienteService {
     static async findAll() {
         const objs = await Cliente.findAll({ include: { all: true, nested: true } });

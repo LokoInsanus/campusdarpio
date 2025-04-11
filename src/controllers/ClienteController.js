@@ -1,5 +1,7 @@
 import { ClienteService } from '../services/ClienteService.js';
 
+// Marcelo de Oliveira Costa Pereira
+
 class ClienteController {
     static async findAll(req, res, next) {
         ClienteService.findAll()
