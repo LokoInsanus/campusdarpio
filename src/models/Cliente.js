@@ -11,14 +11,6 @@ class Cliente extends Model {
                 notEmpty: { msg: 'O nome não pode estar vazio' },
             },
             },
-            endereco: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                notNull: { msg: 'O endereço não pode ser nulo' },
-                notEmpty: { msg: 'O endereço não pode estar vazio' },
-            },
-            },
             cpf: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -31,6 +23,26 @@ class Cliente extends Model {
                 },
             },
             },
+            telefone: {
+                type: DataTypes.STRING,
+                allowNull: false,
+                validate: {
+                    notNull: { msg: 'O telefone não pode ser nulo' },
+                    notEmpty: { msg: 'O telefone não pode estar vazio' },
+                    is: {
+                        args: /^\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}$/,
+                        msg: 'O telefone deve estar no formato válido',
+                    },
+                },
+            },
+            endereco: {
+                type: DataTypes.STRING,
+                allowNull: false,
+                validate: {
+                    notNull: { msg: 'O endereço não pode ser nulo' },
+                    notEmpty: { msg: 'O endereço não pode estar vazio' },
+                },
+            },
             status: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
@@ -39,6 +51,7 @@ class Cliente extends Model {
                 notNull: { msg: 'O status não pode ser nulo' },
             },
             },
+
         }, {
             sequelize,
             modelName: 'Cliente',
