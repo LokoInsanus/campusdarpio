@@ -24,24 +24,24 @@ class BlocoService {
   static async create(req) {
     const { nome, tipo, capacidade, descricao, campus } = req.body;
     if (campus == null) throw 'O Campus do Bloco deve ser preenchido!';
-    const obj = await Bloco.create({ nome, tipo, capacidade, descricao, campusId: campus.id });
+    const obj = await Bloco.create({ nome, tipo, capacidade, descricao, campusId: campus });
     return await Bloco.findByPk(obj.id, { include: { all: true, nested: true } });
   }
 
   static async update(req) {
     const { id } = req.params;
     const { nome, tipo, capacidade, descricao, campus } = req.body;
-    if (uf == null) throw 'O Campus do Bloco deve ser preenchido!';
+    if (campus == null) throw 'O Campus do Bloco deve ser preenchido!';
     const obj = await Bloco.findByPk(id, { include: { all: true, nested: true } });
     if (obj == null) throw 'Bloco não encontrado!';
-    Object.assign(obj, { nome, tipo, capacidade, descricao, campusId: campus.id });
+    Object.assign(obj, { nome, tipo, capacidade, descricao, campusId: campus });
     await obj.save();
     return await Bloco.findByPk(obj.id, { include: { all: true, nested: true } });
   }
 
   static async delete(req) {
     const { id } = req.params;
-    const obj = await Cidade.findByPk(id);
+    const obj = await Bloco.findByPk(id);
     if (obj == null)
       throw 'Bloco não encontrado!';
     try {
