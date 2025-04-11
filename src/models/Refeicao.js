@@ -12,7 +12,7 @@ class Refeicao extends Model {
                     },
                 },
             },
-            tipo: {
+            tipo: { //Acertar FK TIPO
                 type: DataTypes.STRING,
                 allowNull: false,
                 validate: {

@@ -34,4 +34,4 @@ class CampusController {
     }
 }
 
-export { RefeicaoController } ;
+export { CampusController } ;
