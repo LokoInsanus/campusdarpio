@@ -20,7 +20,7 @@ class Campus extends Model {
             }
             },
             quantidadeBlocos: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
                 notNull: true,
