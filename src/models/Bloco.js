@@ -46,7 +46,7 @@ class Bloco extends Model {
           name: 'campusId', 
           allowNull: false, 
           validate: { 
-            notNull: { msg: 'Campus do Bloco deve ser preenchida!' } 
+            notNull: { msg: 'Campus do Bloco deve ser preenchido!' } 
           } 
         } 
       });
