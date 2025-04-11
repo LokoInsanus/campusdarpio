@@ -42,3 +42,5 @@ class RefeicaoService {
         }
     }
 }
+
+export { RefeicaoService } ;

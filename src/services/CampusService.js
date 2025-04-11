@@ -43,3 +43,5 @@ class CampusService {
         }
     }
 }
+
+export { CampusService } ;
