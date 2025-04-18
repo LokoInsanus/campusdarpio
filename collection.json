@@ -12,17 +12,64 @@
 			"item": [
 				{
 					"name": "Bebida",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Bebida/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Bebida",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Listar Bebidas",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Bebida",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Bebida"
+							]
+						}
 					},
 					"response": []
 				},
@@ -30,7 +77,55 @@
 					"name": "Cadastrar Bebida",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Refrigerante de Laranja\",\r\n    \"tipo\": 0,\r\n    \"preco\": 8.50,\r\n    \"quantidade\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Bebida",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Bebida"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Bebida Erro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"\",\r\n    \"tipo\": 5,\r\n    \"preco\": 8,\r\n    \"quantidade\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Bebida",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Bebida"
+							]
+						}
 					},
 					"response": []
 				},
@@ -38,7 +133,28 @@
 					"name": "Alterar Bebida",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Suco de Limão\",\r\n    \"tipo\": 0,\r\n    \"preco\": 8.0,\r\n    \"quantidade\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Bebida/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Bebida",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
@@ -46,7 +162,28 @@
 					"name": "Deletar Bebida",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Bebida/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Bebida",
+								"1"
+							]
+						}
 					},
 					"response": []
 				}
@@ -57,17 +194,64 @@
 			"item": [
 				{
 					"name": "Bloco",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Bloco/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Bloco",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Listar Blocos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Bloco",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Bloco"
+							]
+						}
 					},
 					"response": []
 				},
@@ -75,7 +259,55 @@
 					"name": "Cadastrar Bloco",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Bloco 1\",\r\n    \"tipo\": 0,\r\n    \"capacidade\": 2000,\r\n    \"descricao\": \"Bloco 1 Descrição\",\r\n    \"campus\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Bloco",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Bloco"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Bloco Erro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"\",\r\n    \"tipo\": 4,\r\n    \"capacidade\": 2.15,\r\n    \"descricao\": \"\",\r\n    \"campus\": 1\r\n    // \"campus\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Bloco",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Bloco"
+							]
+						}
 					},
 					"response": []
 				},
@@ -83,7 +315,28 @@
 					"name": "Alterar Bloco",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Bloco 2\",\r\n    \"tipo\": 2,\r\n    \"capacidade\": 500,\r\n    \"descricao\": \"Bloco 2 Descrição\",\r\n    \"campus\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Bloco/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Bloco",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
@@ -91,7 +344,19 @@
 					"name": "Deletar Bloco",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/Bloco/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Bloco",
+								"1"
+							]
+						}
 					},
 					"response": []
 				}
@@ -104,7 +369,19 @@
 					"name": "Campus",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/Campus/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Campus",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
@@ -112,7 +389,18 @@
 					"name": "Listar Campi",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/Campus",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Campus"
+							]
+						}
 					},
 					"response": []
 				},
@@ -120,7 +408,55 @@
 					"name": "Cadastrar Campus",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Roger\",\r\n    \"endereco\":\"katatau\",\r\n    \"quantidadeBlocos\":\"6\",\r\n    \"status\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Campus",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Campus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Campus ERRO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"\",\r\n    \"endereco\":\"k\",\r\n    \"quantidadeBlocos\":\"\",\r\n    \"status\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Campus",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Campus"
+							]
+						}
 					},
 					"response": []
 				},
@@ -128,7 +464,28 @@
 					"name": "Alterar Campus",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Roger2\",\r\n    \"endereco\":\"katatau\",\r\n    \"quantidadeBlocos\":\"6\",\r\n    \"status\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Campus/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Campus",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
@@ -136,7 +493,19 @@
 					"name": "Deletar Campus",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/Campus/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Campus",
+								"2"
+							]
+						}
 					},
 					"response": []
 				}
@@ -147,9 +516,21 @@
 			"item": [
 				{
 					"name": "Cliente",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:3333/Cliente/1",
 							"protocol": "http",
@@ -167,9 +548,21 @@
 				},
 				{
 					"name": "Listar Clientes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:3333/Cliente",
 							"protocol": "http",
@@ -219,7 +612,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nome\": \"Marcelo\",\r\n  \"cpf\": \"\",\r\n  \"telefone\": \"28999123456\",\r\n  \"endereco\": \"Rua das ruas\",\r\n  \"status\": 0\r\n}",
+							"raw": "{\r\n  \"nome\": \"\",\r\n  \"cpf\": \"123\",\r\n  \"telefone\": \"28\",\r\n  \"endereco\": \"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -247,7 +640,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nome\": \"Otario\",\r\n  \"cpf\": \"12345678910\",\r\n  \"telefone\": \"28999123456\",\r\n  \"endereco\": \"Rua das ruas\",\r\n  \"status\": 0\r\n}",
+							"raw": "{\r\n  \"nome\": \"Gabriel\",\r\n  \"cpf\": \"12345678910\",\r\n  \"telefone\": \"28999123456\",\r\n  \"endereco\": \"Rua das ruas\",\r\n  \"status\": 0\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -274,6 +667,15 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:3333/Cliente/2",
 							"protocol": "http",
@@ -340,7 +742,35 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n  \"nome\": \"Marcelo\",\r\n  \"cpf\": \"12345678910\",\r\n  \"telefone\": \"28999123456\",\r\n  \"endereco\": \"Rua das ruas\",\r\n  \"cnh\": \"123456789\",\r\n  \"veiculo\": \"Moto\",\r\n  \"status\": \"ativo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Entregador",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Entregador"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Entregador Erro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"\",\r\n  \"cpf\": \"123\",\r\n  \"telefone\": \"28\",\r\n  \"endereco\": \"\",\r\n  \"cnh\": \"123\",\r\n  \"veiculo\": \"\",\r\n  \"status\": \"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -366,6 +796,15 @@
 					"request": {
 						"method": "PUT",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Gabriel\",\r\n  \"cpf\": \"12345678910\",\r\n  \"telefone\": \"28999123456\",\r\n  \"endereco\": \"Rua das ruas\",\r\n  \"cnh\": 123456789,\r\n  \"veiculo\": \"Moto\",\r\n  \"status\": \"ativo\",\r\n  \"data_de_emissao\": \"2025+04+11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:3333/Entregador/1",
 							"protocol": "http",
@@ -410,15 +849,50 @@
 					"name": "Funcionario",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/Funcionario/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Funcionario",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Listar Funcionarios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Funcionario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Funcionario"
+							]
+						}
 					},
 					"response": []
 				},
@@ -426,7 +900,55 @@
 					"name": "Cadastrar Funcionario",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Marcelo\",\r\n  \"cpf\": \"12345678910\",\r\n  \"telefone\": \"28999123456\",\r\n  \"endereco\": \"Rua das ruas\",\r\n  \"data_de_emissao\": \"2025+04+11\",\r\n  \"cargo\": \"Atendente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Funcionario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Funcionario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Funcionario Erro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"\",\r\n  \"cpf\": \"123\",\r\n  \"telefone\": \"28\",\r\n  \"endereco\": \"\",\r\n  \"cnh\": \"123\",\r\n  \"veiculo\": \"\"  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Funcionario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Funcionario"
+							]
+						}
 					},
 					"response": []
 				},
@@ -434,7 +956,28 @@
 					"name": "Alterar Funcionario",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Gabriel\",\r\n  \"cpf\": \"12345678910\",\r\n  \"telefone\": \"28999123456\",\r\n  \"endereco\": \"Rua das ruas\",\r\n  \"data_de_emissao\": \"2025+04+11\",\r\n  \"cargo\": \"Atendente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Funcionario/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Funcionario",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
@@ -442,7 +985,19 @@
 					"name": "Deletar Funcionario",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/Funcionario/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Funcionario",
+								"2"
+							]
+						}
 					},
 					"response": []
 				}
@@ -455,7 +1010,19 @@
 					"name": "Refeicao",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/Refeicao/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Refeicao",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
@@ -463,7 +1030,18 @@
 					"name": "Listar Refeicoes",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/Refeicao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Refeicao"
+							]
+						}
 					},
 					"response": []
 				},
@@ -471,7 +1049,55 @@
 					"name": "Cadastrar Refeicao",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"alface\",\r\n    \"tipo\":\"katatau\",\r\n    \"preco\":1.2,\r\n    \"quantidade\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Refeicao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Refeicao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Refeicao ERRO",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"\",\r\n    \"tipo\":\"\",\r\n    \"preco\":\"\",\r\n    \"quantidade\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Refeicao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Refeicao"
+							]
+						}
 					},
 					"response": []
 				},
@@ -479,7 +1105,28 @@
 					"name": "Alterar Refeicao",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"alface2\",\r\n    \"tipo\":\"katatau\",\r\n    \"preco\":1.2,\r\n    \"quantidade\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Refeicao/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Refeicao",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
@@ -487,7 +1134,19 @@
 					"name": "Deletar Refeicao",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/Refeicao/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Refeicao",
+								"2"
+							]
+						}
 					},
 					"response": []
 				}
@@ -498,17 +1157,64 @@
 			"item": [
 				{
 					"name": "Tipo de Refeicao",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/TipoDeRefeicao/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"TipoDeRefeicao",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "Listar Tipos de Refeicoes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/TipoDeRefeicao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"TipoDeRefeicao"
+							]
+						}
 					},
 					"response": []
 				},
@@ -516,7 +1222,55 @@
 					"name": "Cadastrar Tipo de Refeicao",
 					"request": {
 						"method": "POST",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipo\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/TipoDeRefeicao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"TipoDeRefeicao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Tipo de Refeicao Erro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipo\": 6\r\n    // \"tipo\": 0 -> Cadastrar mais de uma vez vai da erro.\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/TipoDeRefeicao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"TipoDeRefeicao"
+							]
+						}
 					},
 					"response": []
 				},
@@ -524,7 +1278,28 @@
 					"name": "Alterar Tipo de Refeicao",
 					"request": {
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipo\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/TipoDeRefeicao/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"TipoDeRefeicao",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
@@ -532,7 +1307,28 @@
 					"name": "Deletar Tipo de Refeicao",
 					"request": {
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/TipoDeRefeicao/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"TipoDeRefeicao",
+								"1"
+							]
+						}
 					},
 					"response": []
 				}
