@@ -39,7 +39,7 @@ class Bebida extends Model {
           }
         }
       }
-    }, { sequelize, modelName: 'bebida', tableName: 'bebidas' })
+    }, { sequelize, modelName: 'Bebida', tableName: 'bebidas' })
   }
 
   static associate(models) {

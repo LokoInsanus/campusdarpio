@@ -1,4 +1,5 @@
 import { Model, DataTypes } from 'sequelize';
+import { TipoDeRefeicao } from './TipoDeRefeicao.js';
 
 class Refeicao extends Model {
     static init(sequelize) {
@@ -9,15 +10,6 @@ class Refeicao extends Model {
                 validate: {
                     notEmpty: {
                         msg: 'O campo nome não pode estar vazio.',
-                    },
-                },
-            },
-            tipo: { //Acertar FK TIPO
-                type: DataTypes.STRING,
-                allowNull: false,
-                validate: {
-                    notEmpty: {
-                        msg: 'O campo tipo não pode estar vazio.',
                     },
                 },
             },
@@ -55,10 +47,18 @@ class Refeicao extends Model {
     }
 
     static associate(models) {
-        if (models.TipoDeRefeicao) {
-            this.belongsTo(models.TipoDeRefeicao, {
-                foreignKey: 'tipoDeRefeicaoId',
-                as: 'tipoDeRefeicao',
+        if (models.TipoDeRefeicao || TipoDeRefeicao) { // Verifica se o modelo TipoDeRefeicao está disponível
+            this.belongsTo(models.TipoDeRefeicao || TipoDeRefeicao, {
+                as: 'tipoderefeicao',
+                foreignKey: {
+                    name: 'tipoderefeicaoId',
+                    allowNull: false,
+                    validate: {
+                        notNull: {
+                            msg: 'O campo tipoDeRefeicaoId não pode ser nulo.',
+                        },
+                    },
+                },
             });
         } else {
             console.warn('TipoDeRefeicao model is not defined.');

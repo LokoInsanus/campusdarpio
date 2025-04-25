@@ -35,20 +35,20 @@ class Bloco extends Model {
           len: { args: [2, 100], msg: "A descrição deve ter entre 2 e 100 letras!" }
         }
       },
-    }, { sequelize, modelName: 'bloco', tableName: 'blocos' })
+    }, { sequelize, modelName: 'Bloco', tableName: 'blocos' })
   }
 
   static associate(models) {
     if (models.Campus || Campus) { // Verifica se o modelo Campus está disponível
-      this.belongsTo(models.Campus || Campus, { 
-        as: 'campus', 
-        foreignKey: { 
-          name: 'campusId', 
-          allowNull: false, 
-          validate: { 
-            notNull: { msg: 'Campus do Bloco deve ser preenchido!' } 
-          } 
-        } 
+      this.belongsTo(models.Campus || Campus, {
+        as: 'campus',
+        foreignKey: {
+          name: 'campusId',
+          allowNull: false,
+          validate: {
+            notNull: { msg: 'Campus do Bloco deve ser preenchido!' }
+          }
+        }
       });
     } else {
       console.warn("O modelo 'Campus' não foi definido. Verifique se ele foi importado e inicializado corretamente.");

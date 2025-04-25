@@ -1,7 +1,7 @@
 GABRIEL -
     Campus
     Refeicao
-    Pedido
+    Pedido - fazer futuramente
 MARCELO -
     Funcionario
     Entregador

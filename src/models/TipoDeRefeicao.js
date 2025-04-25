@@ -27,7 +27,7 @@ class TipoDeRefeicao extends Model {
       },
     }, {
       sequelize,
-      modelName: 'tipoderefeicao',
+      modelName: 'Tipoderefeicao',
       tableName: 'tiposderefeicoes'
     });
   }
