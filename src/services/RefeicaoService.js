@@ -47,10 +47,25 @@ class RefeicaoService {
 
     static async update(req) {
         const { id } = req.params;
-        const { nome, tipo, preco, quantidade } = req.body;
+        const { nome, descricao, tipo, preco, quantidade } = req.body;
+    
         const obj = await Refeicao.findByPk(id, { include: { all: true, nested: true } });
-        if (obj == null) throw new Error("Funcionario não encontrado");
-        Object.assign(obj, { nome, tipo, preco, quantidade });
+        if (!obj) throw new Error("Refeição não encontrada");
+    
+
+        const tipoEncontrado = await TipoDeRefeicao.findOne({ where: { tipo } });
+        if (!tipoEncontrado) {
+            throw new Error(`Tipo de refeição não encontrado.`);
+        }
+    
+        Object.assign(obj, {
+            nome,
+            descricao,
+            preco,
+            quantidade,
+            tipoderefeicaoId: tipoEncontrado.id
+        });
+    
         await obj.save();
         return await Refeicao.findByPk(id, { include: { all: true, nested: true } });
     }
