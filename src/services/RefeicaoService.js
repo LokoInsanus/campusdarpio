@@ -1,4 +1,6 @@
+import { Campus } from "../models/Campus.js";
 import { Refeicao } from "../models/Refeicao.js";
+import { TipoDeRefeicao } from "../models/TipoDeRefeicao.js";
 
 // Gabriel Oliveira Natalli Augusto
 
@@ -15,10 +17,32 @@ class RefeicaoService {
         return obj;
     }
 
-    static async create(req) { 
-        const { nome, tipo, preco, quantidade } = req.body; //Acertar FK TIPO
-        const obj = await Refeicao.create({ nome, tipo, preco, quantidade });
-        return await Refeicao.findByPk(obj.id, { include: { all: true, nested: true } });
+    static async findByTipoDeRefeicao(req) {
+        const { id } = req.params;
+        const objs = await Refeicao.findAll({ where: { tipoderefeicaoId: id }, include: { all: true, nested: true } });
+        return objs;
+      }
+
+      static async create(req) {
+        const { nome, descricao, tipo, preco, quantidade } = req.body;
+    
+        const tipoEncontrado = await TipoDeRefeicao.findOne({ where: { tipo } });
+    
+        if (!tipoEncontrado) {
+            throw new Error(`Tipo de refeição não encontrado.`);
+        }
+    
+        const obj = await Refeicao.create({
+            nome,
+            descricao,
+            tipoderefeicaoId: tipoEncontrado.id,
+            preco,
+            quantidade
+        });
+    
+        return await Refeicao.findByPk(obj.id, {
+            include: { all: true, nested: true }
+        });
     }
 
     static async update(req) {

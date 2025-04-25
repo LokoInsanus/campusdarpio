@@ -13,6 +13,15 @@ class Refeicao extends Model {
                     },
                 },
             },
+            descricao: {
+                type: DataTypes.STRING,
+                allowNull: true,
+                validate: {
+                    notEmpty: {
+                        msg: 'O campo descrição não pode estar vazio.',
+                    },
+                },
+            },
             preco: {
                 type: DataTypes.FLOAT,
                 allowNull: false,
@@ -45,6 +54,7 @@ class Refeicao extends Model {
             tableName: 'refeicoes',
         });
     }
+    
 
     static associate(models) {
         if (models.TipoDeRefeicao || TipoDeRefeicao) { // Verifica se o modelo TipoDeRefeicao está disponível
