@@ -12,3 +12,21 @@ ROGER -
     Bloco
     TipoRefeicao
     Cardapio
+
+Entrega
+
+Regra 1: Não permitir mais de uma entrega para um mesmo pedido.
+
+Regra 2: Entregador não pode ter mais de 3 entregas ao mesmo tempo.
+
+Pedido
+
+Regra 1: Não permitir que faça outro pedido enquanto tiver um pedido não finalizado ou em aberto.
+
+Regra 2: Não permitir pedidos de clientes bloqueados no sistema. 
+
+Cardápio
+
+Regra 1: Não permitir cardápios diferentes para um mesmo período.
+
+Regra 2: O cardápio não pode ser excluído se tiver registros de pedidos associados a ele.
