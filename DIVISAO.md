@@ -30,3 +30,5 @@ Cardápio
 Regra 1: Não permitir cardápios diferentes para um mesmo período.
 
 Regra 2: O cardápio não pode ser excluído se tiver registros de pedidos associados a ele.
+
+Regra 2*: O cascade já poderia fazer isso automaticamente, mas fiz como uma regra de negócio. Mesmo não precisando.

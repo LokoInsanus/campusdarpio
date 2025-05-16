@@ -22,7 +22,6 @@ class EntregaService {
 
   static async create(req) {
     const { pedidoId, entregadorId, inicio_entrega, fim_entrega } = req.body;
-    // Checagem explícita se os IDs existem
     const pedido = await Pedido.findByPk(pedidoId);
     if (!pedido) throw "Pedido não encontrado!";
     const entregador = await Entregador.findByPk(entregadorId);
