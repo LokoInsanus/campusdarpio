@@ -11,7 +11,6 @@ import { Entregador } from '../models/Entregador.js';
 import { Funcionario } from '../models/Funcionario.js';
 import { Pedido } from '../models/Pedido.js';
 import { Refeicao } from '../models/Refeicao.js';
-import { TipoDeRefeicao } from '../models/TipoDeRefeicao.js';
 
 const sequelize = new Sequelize(databaseConfig);
 
@@ -25,7 +24,6 @@ Entregador.init(sequelize);
 Funcionario.init(sequelize);
 Pedido.init(sequelize);
 Refeicao.init(sequelize);
-TipoDeRefeicao.init(sequelize);
 
 Campus.associate(sequelize.models);
 Bloco.associate(sequelize.models);
@@ -37,7 +35,6 @@ Entregador.associate(sequelize.models);
 Funcionario.associate(sequelize.models);
 Pedido.associate(sequelize.models);
 Refeicao.associate(sequelize.models);
-TipoDeRefeicao.associate(sequelize.models);
 
 databaseInserts();
 
