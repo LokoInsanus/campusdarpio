@@ -4,14 +4,6 @@ class Pedido extends Model {
     static init(sequelize) {
         super.init(
             {
-                pedidoId: {
-                    type: DataTypes.INTEGER,
-                    allowNull: false,
-                    validate: {
-                        notNull: true,
-                        notEmpty: true,
-                    },
-                },
                 cliente: {
                     type: DataTypes.INTEGER,
                     allowNull: false,
