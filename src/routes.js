@@ -7,6 +7,9 @@ import { ClienteController } from "./controllers/ClienteController.js";
 import { EntregadorController } from "./controllers/EntregadorController.js";
 import { FuncionarioController } from "./controllers/FuncionarioController.js";
 import { RefeicaoController } from "./controllers/RefeicaoController.js";
+import { EntregaController } from "./controllers/EntregaController.js";
+// import { PedidoController } from "./controllers/PedidoController.js";
+// import { CardapioController } from "./controllers/CardapioController.js";
 
 const routes = express.Router();
 
@@ -51,5 +54,23 @@ routes.get("/Refeicao/:id", RefeicaoController.findByPk);
 routes.post("/Refeicao", RefeicaoController.create);
 routes.put("/Refeicao/:id", RefeicaoController.update);
 routes.delete("/Refeicao/:id", RefeicaoController.delete);
+
+routes.get("/Entrega", EntregaController.findAll);
+routes.get("/Entrega/:id", EntregaController.findByPk);
+routes.post("/Entrega", EntregaController.create);
+routes.put("/Entrega/:id", EntregaController.update);
+routes.delete("/Entrega/:id", EntregaController.delete);
+
+// routes.get("/Pedido", PedidoController.findAll);
+// routes.get("/Pedido/:id", PedidoController.findByPk);
+// routes.post("/Pedido", PedidoController.create);
+// routes.put("/Pedido/:id", PedidoController.update);
+// routes.delete("/Pedido/:id", PedidoController.delete);
+
+// routes.get("/Cardapio", CardapioController.findAll);
+// routes.get("/Cardapio/:id", CardapioController.findByPk);
+// routes.post("/Cardapio", CardapioController.create);
+// routes.put("/Cardapio/:id", CardapioController.update);
+// routes.delete("/Cardapio/:id", CardapioController.delete);
 
 export default routes;
