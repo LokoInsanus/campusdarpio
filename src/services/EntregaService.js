@@ -24,7 +24,7 @@ class EntregaService {
     const { pedidoId, entregadorId, inicio_entrega, fim_entrega } = req.body;
     if (await this.verificarRegrasDeNegocio(req)) {
       const t = await sequelize.transaction();
-      const obj = await Entrega.create( { pedido: pedidoId, entregadorId: entregadorId, inicio_entrega, fim_entrega }, { transaction: t } );
+      const obj = await Entrega.create( { pedido: pedidoId, entregador: entregadorId, inicio_entrega, fim_entrega }, { transaction: t } );
       try {
         await Promise.all(itens.map(item => obj.createItem({ pedidoId: item.pedidoId, entregadorId: item.entregadorId, inicio_entrega: item.inicio_entrega, fim_entrega: item.fim_entrega }, { transaction: t })));
         await Promise.all(itens.map(async item => (await Pedido.findByPk(item.pedido.id)).update({ status: 'entregue' }, { transaction: t })));
@@ -32,7 +32,7 @@ class EntregaService {
         return await Entrega.findByPk(obj.id, { include: { all: true, nested: true } });
       } catch (error) {
         await t.rollback();
-        throw "Pelo menos uma das fitas informadas não foi encontrada!";
+        throw "Pelo menos uma Entrega não informadas não foi encontrada!";
       }
     }
   }
@@ -86,7 +86,7 @@ class EntregaService {
       if (diffHoras > 1) {
       const entregador = await Entregador.findByPk(entregadorId);
       if (entregador) {
-        entregador.status = 'atrasado';
+        entregador.status = 'inativo';
         await entregador.save();
       }
       }

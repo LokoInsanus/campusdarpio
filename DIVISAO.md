@@ -17,7 +17,7 @@ Entrega
 
 Regra 1: Não permitir mais de uma entrega para um mesmo pedido.
 
-Regra 2: Entregador não pode ter mais de 3 entregas ao mesmo tempo.
+Regra 2: Atualizar status do entregador caso a entrega ultrapasse uma hora
 
 Pedido
 
