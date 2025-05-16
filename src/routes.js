@@ -7,7 +7,6 @@ import { ClienteController } from "./controllers/ClienteController.js";
 import { EntregadorController } from "./controllers/EntregadorController.js";
 import { FuncionarioController } from "./controllers/FuncionarioController.js";
 import { RefeicaoController } from "./controllers/RefeicaoController.js";
-import { TipoDeRefeicaoController } from "./controllers/TipoDeRefeicaoController.js";
 
 const routes = express.Router();
 
@@ -52,11 +51,5 @@ routes.get("/Refeicao/:id", RefeicaoController.findByPk);
 routes.post("/Refeicao", RefeicaoController.create);
 routes.put("/Refeicao/:id", RefeicaoController.update);
 routes.delete("/Refeicao/:id", RefeicaoController.delete);
-
-routes.get("/TipoDeRefeicao", TipoDeRefeicaoController.findAll);
-routes.get("/TipoDeRefeicao/:id", TipoDeRefeicaoController.findByPk);
-routes.post("/TipoDeRefeicao", TipoDeRefeicaoController.create);
-routes.put("/TipoDeRefeicao/:id", TipoDeRefeicaoController.update);
-routes.delete("/TipoDeRefeicao/:id", TipoDeRefeicaoController.delete);
 
 export default routes;

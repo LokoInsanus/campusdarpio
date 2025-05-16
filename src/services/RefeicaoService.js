@@ -1,11 +1,10 @@
 import { Campus } from "../models/Campus.js";
 import { Refeicao } from "../models/Refeicao.js";
-import { TipoDeRefeicao } from "../models/TipoDeRefeicao.js";
 
 // Gabriel Oliveira Natalli Augusto
 
 class RefeicaoService {
-  
+
     static async findAll() {
         const objs = await Refeicao.findAll({ include: { all: true, nested: true } });
         return objs;
@@ -19,27 +18,21 @@ class RefeicaoService {
 
     static async findByTipoDeRefeicao(req) {
         const { id } = req.params;
-        const objs = await Refeicao.findAll({ where: { tipoderefeicaoId: id }, include: { all: true, nested: true } });
+        const objs = await Refeicao.findAll({ where: { tipo: id }, include: { all: true, nested: true } });
         return objs;
-      }
+    }
 
-      static async create(req) {
+    static async create(req) {
         const { nome, descricao, tipo, preco, quantidade } = req.body;
-    
-        const tipoEncontrado = await TipoDeRefeicao.findOne({ where: { tipo } });
-    
-        if (!tipoEncontrado) {
-            throw new Error(`Tipo de refeição não encontrado.`);
-        }
-    
+
         const obj = await Refeicao.create({
             nome,
             descricao,
-            tipoderefeicaoId: tipoEncontrado.id,
+            tipo,
             preco,
             quantidade
         });
-    
+
         return await Refeicao.findByPk(obj.id, {
             include: { all: true, nested: true }
         });
@@ -48,24 +41,18 @@ class RefeicaoService {
     static async update(req) {
         const { id } = req.params;
         const { nome, descricao, tipo, preco, quantidade } = req.body;
-    
+
         const obj = await Refeicao.findByPk(id, { include: { all: true, nested: true } });
         if (!obj) throw new Error("Refeição não encontrada");
-    
 
-        const tipoEncontrado = await TipoDeRefeicao.findOne({ where: { tipo } });
-        if (!tipoEncontrado) {
-            throw new Error(`Tipo de refeição não encontrado.`);
-        }
-    
         Object.assign(obj, {
             nome,
             descricao,
+            tipo,
             preco,
-            quantidade,
-            tipoderefeicaoId: tipoEncontrado.id
+            quantidade
         });
-    
+
         await obj.save();
         return await Refeicao.findByPk(id, { include: { all: true, nested: true } });
     }
@@ -82,4 +69,4 @@ class RefeicaoService {
     }
 }
 
-export { RefeicaoService } ;
+export { RefeicaoService };
