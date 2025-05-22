@@ -61,6 +61,16 @@ class Pedido extends Model {
                         notEmpty: true,
                     },
                 },
+                status: {
+                    type: DataTypes.STRING,
+                    allowNull: false,
+                    defaultValue: 'aberto',
+                    validate: {
+                        notNull: true,
+                        notEmpty: true,
+                        isIn: [['aberto', 'finalizado']],
+                    },
+                },
             },
             {
                 sequelize,
