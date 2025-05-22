@@ -21,14 +21,13 @@ class PedidoService {
   }
 
   static async create(req) {
-    const { entregadorId, inicio_pedido, fim_pedido } = req.body;
-    const entregador = await Entregador.findByPk(entregadorId);
-    if (!entregador) throw "Entregador não encontrado!";
-    if (await this.verificarRegrasDeNegocio(req)) {
+    const { cliente, cardapio, refeicao, bebida, dataHora, campus, bloco } = req.body;
+    // Validação de cliente (mantendo regra de negócio)
+    if (await this.verificarRegrasDeNegocio({ body: { clienteId: cliente } })) {
       const t = await sequelize.transaction();
       try {
         const obj = await Pedido.create(
-          { entregadorId, inicio_pedido, fim_pedido },
+          { cliente, cardapio, refeicao, bebida, dataHora, campus, bloco },
           { transaction: t }
         );
         await t.commit();
@@ -42,11 +41,11 @@ class PedidoService {
 
   static async update(req) {
     const { id } = req.params;
-    const { entregadorId, inicio_pedido, fim_pedido } = req.body;
+    const { cliente, cardapio, refeicao, bebida, dataHora, campus, bloco } = req.body;
     const obj = await Pedido.findByPk(id, { include: { all: true, nested: true } });
     if (obj == null) throw 'Pedido não encontrado!';
     const t = await sequelize.transaction();
-    Object.assign(obj, { entregadorId, inicio_pedido, fim_pedido });
+    Object.assign(obj, { cliente, cardapio, refeicao, bebida, dataHora, campus, bloco });
     await obj.save({ transaction: t });
     try {
       await t.commit();
