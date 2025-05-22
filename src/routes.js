@@ -9,7 +9,7 @@ import { FuncionarioController } from "./controllers/FuncionarioController.js";
 import { RefeicaoController } from "./controllers/RefeicaoController.js";
 import { EntregaController } from "./controllers/EntregaController.js";
 // import { PedidoController } from "./controllers/PedidoController.js";
-// import { CardapioController } from "./controllers/CardapioController.js";
+import { CardapioController } from "./controllers/CardapioController.js";
 
 const routes = express.Router();
 
@@ -67,10 +67,10 @@ routes.delete("/Entrega/:id", EntregaController.delete);
 // routes.put("/Pedido/:id", PedidoController.update);
 // routes.delete("/Pedido/:id", PedidoController.delete);
 
-// routes.get("/Cardapio", CardapioController.findAll);
-// routes.get("/Cardapio/:id", CardapioController.findByPk);
-// routes.post("/Cardapio", CardapioController.create);
-// routes.put("/Cardapio/:id", CardapioController.update);
-// routes.delete("/Cardapio/:id", CardapioController.delete);
+routes.get("/Cardapio", CardapioController.findAll);
+routes.get("/Cardapio/:id", CardapioController.findByPk);
+routes.post("/Cardapio", CardapioController.create);
+routes.put("/Cardapio/:id", CardapioController.update);
+routes.delete("/Cardapio/:id", CardapioController.delete);
 
 export default routes;
