@@ -4,7 +4,7 @@ class Pedido extends Model {
     static init(sequelize) {
         super.init(
             {
-                cliente: {
+                clienteId: {
                     type: DataTypes.INTEGER,
                     allowNull: false,
                     validate: {
@@ -12,7 +12,7 @@ class Pedido extends Model {
                         notEmpty: true,
                     },
                 },
-                cardapio: {
+                cardapioId: {
                     type: DataTypes.INTEGER, // * Refeições e bebidas terão select baseado em cardapio. *
                     allowNull: false,
                     validate: {
@@ -20,7 +20,7 @@ class Pedido extends Model {
                         notEmpty: true,
                     },
                 },
-                refeicao: {
+                refeicaoId: {
                     type: DataTypes.INTEGER,
                     allowNull: false,
                     validate: {
@@ -28,7 +28,7 @@ class Pedido extends Model {
                         notEmpty: true,
                     },
                 },
-                bebida: {
+                bebidaId: {
                     type: DataTypes.INTEGER,
                     allowNull: false,
                     validate: {
@@ -45,7 +45,7 @@ class Pedido extends Model {
                         isDate: true,
                     },
                 },
-                campus: {
+                campusId: {
                     type: DataTypes.INTEGER,
                     allowNull: false,
                     validate: {
@@ -53,7 +53,7 @@ class Pedido extends Model {
                         notEmpty: true,
                     },
                 },
-                bloco: {
+                blocoId: {
                     type: DataTypes.INTEGER,
                     allowNull: false,
                     validate: {
