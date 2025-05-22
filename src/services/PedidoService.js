@@ -1,5 +1,5 @@
 import { Pedido } from "../models/Pedido.js";
-import { Entregador } from "../models/Entregador.js";
+import { Entrega } from "../models/Entrega.js"; 
 import { Cliente } from "../models/Cliente.js";
 
 import sequelize from '../config/database-connection.js';
@@ -71,15 +71,19 @@ class PedidoService {
   static async verificarRegrasDeNegocio(req) {
     const { clienteId } = req.body;
 
-    // Regra 1: Não permitir dois pedidos não finalizados para o mesmo cliente
-    const pedidoNaoFinalizado = await Pedido.findOne({
-      where: {
-        clienteId,
-        fim_pedido: null
-      }
+    // Busca todos os pedidos do cliente
+    const pedidosCliente = await Pedido.findAll({
+      where: { clienteId }
     });
-    if (pedidoNaoFinalizado) {
-      throw "Já existe um pedido não finalizado para este cliente!";
+
+    // Para cada pedido, verifica se existe entrega associada
+    for (const pedido of pedidosCliente) {
+      const entrega = await Entrega.findOne({
+        where: { pedidoId: pedido.id }
+      });
+      if (!entrega) {
+        throw "Já existe um pedido não finalizado para este cliente!";
+      }
     }
 
     // Regra 2: Não permitir pedidos de clientes bloqueados no sistema
@@ -87,7 +91,7 @@ class PedidoService {
     if (!cliente) {
       throw "Cliente não encontrado!";
     }
-    if (cliente.status === 'bloqueado') {
+    if (cliente.status.toLowerCase() === 'bloqueado') {
       throw "Cliente bloqueado no sistema!";
     }
 
