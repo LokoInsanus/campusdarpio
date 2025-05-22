@@ -8,13 +8,9 @@ import { EntregadorController } from "./controllers/EntregadorController.js";
 import { FuncionarioController } from "./controllers/FuncionarioController.js";
 import { RefeicaoController } from "./controllers/RefeicaoController.js";
 import { EntregaController } from "./controllers/EntregaController.js";
-<<<<<<< HEAD
-// import { PedidoController } from "./controllers/PedidoController.js";
-import { CardapioController } from "./controllers/CardapioController.js";
-=======
 import { PedidoController } from "./controllers/PedidoController.js";
-// import { CardapioController } from "./controllers/CardapioController.js";
->>>>>>> f8bca3da4d8b7921943704e79e69a641bc8fdef1
+import { CardapioController } from "./controllers/CardapioController.js";
+import { PedidoController } from "./controllers/PedidoController.js";
 
 const routes = express.Router();
 
