@@ -10,7 +10,6 @@ import { RefeicaoController } from "./controllers/RefeicaoController.js";
 import { EntregaController } from "./controllers/EntregaController.js";
 import { PedidoController } from "./controllers/PedidoController.js";
 import { CardapioController } from "./controllers/CardapioController.js";
-import { PedidoController } from "./controllers/PedidoController.js";
 
 const routes = express.Router();
 
