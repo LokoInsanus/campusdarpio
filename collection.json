@@ -640,7 +640,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nome\": \"Gabriel\",\r\n  \"cpf\": \"12345678910\",\r\n  \"telefone\": \"28999123456\",\r\n  \"endereco\": \"Rua das ruas\",\r\n  \"status\": 0\r\n}",
+							"raw": "{\r\n  \"nome\": \"Gabriel\",\r\n  \"cpf\": \"12345678910\",\r\n  \"telefone\": \"28999123456\",\r\n  \"endereco\": \"Rua das ruas\",\r\n  \"status\": \"Bloqueado\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -648,7 +648,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3333/Cliente/1",
+							"raw": "http://localhost:3333/Cliente/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -656,7 +656,7 @@
 							"port": "3333",
 							"path": [
 								"Cliente",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -1052,7 +1052,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\":\"alface\",\r\n    \"tipo\":\"katatau\",\r\n    \"preco\":1.2,\r\n    \"quantidade\": 2\r\n}",
+							"raw": "{\r\n    \"nome\":\"alface\",\r\n    \"descricao\": \"verdura\",\r\n    \"tipo\":0,\r\n    \"preco\":1.2,\r\n    \"quantidade\": 2\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1080,7 +1080,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\":\"\",\r\n    \"tipo\":\"\",\r\n    \"preco\":\"\",\r\n    \"quantidade\":\"\"\r\n}",
+							"raw": "{\r\n    \"nome\":\"\",\r\n    \"descricao\": 0,\r\n    \"tipo\":\"\",\r\n    \"preco\":\"\",\r\n    \"quantidade\":\"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1108,7 +1108,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\":\"alface2\",\r\n    \"tipo\":\"katatau\",\r\n    \"preco\":1.2,\r\n    \"quantidade\": 2\r\n}",
+							"raw": "{\r\n    \"nome\":\"alface4002\",\r\n    \"descricao\": \"Lasanha\",\r\n    \"tipo\": 1,\r\n    \"preco\":1.5,\r\n    \"quantidade\": 5\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1136,7 +1136,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3333/Refeicao/2",
+							"raw": "http://localhost:3333/Refeicao/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1144,6 +1144,213 @@
 							"port": "3333",
 							"path": [
 								"Refeicao",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Entrega",
+			"item": [
+				{
+					"name": "Entrega",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/Entrega/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Entrega",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Entregas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/Entrega",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Entrega"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Entrega",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"pedidoId\": 5,\r\n  \"entregadorId\": 1,\r\n  \"inicio_entrega\": \"2025-05-16T14:00:00.000Z\",\r\n  \"fim_entrega\": \"2025-05-16T14:30:00.000Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Entrega",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Entrega"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadatrar Entrega Erro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"pedidoId\": \"1\",\r\n  \"entregadorId\": \"1\",\r\n  \"inicio_entrega\": \"\",\r\n  \"fim_entrega\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Entrega",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Entrega"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Entrega RN1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"pedidoId\": 1,\r\n  \"entregadorId\": 1,\r\n  \"inicio_entrega\": \"2025-05-16T14:00:00.000Z\",\r\n  \"fim_entrega\": \"2025-05-16T14:30:00.000Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Entrega",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Entrega"
+							]
+						},
+						"description": "Regra 1: Não permitir mais de uma entrega para um mesmo pedido."
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Entrega RN2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"pedidoId\": 1,\r\n  \"entregadorId\": 1,\r\n  \"inicio_entrega\": \"2025-05-16T14:00:00.000Z\",\r\n  \"fim_entrega\": \"2025-05-16T15:10:00.000Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Entrega",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Entrega"
+							]
+						},
+						"description": "Regra 2: Atualizar status do entregador caso a entrega ultrapasse uma hora."
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Entrega",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"pedidoId\": 1,\r\n  \"entregadorId\": 1,\r\n  \"inicio_entrega\": \"2025-05-16T14:00:00.000Z\",\r\n  \"fim_entrega\": \"2025-05-16T15:10:00.000Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Entrega/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Entrega",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Entrega",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/Entrega/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Entrega",
 								"2"
 							]
 						}
@@ -1153,10 +1360,10 @@
 			]
 		},
 		{
-			"name": "Tipo de Refeicao",
+			"name": "Pedido",
 			"item": [
 				{
-					"name": "Tipo de Refeicao",
+					"name": "Pedido",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1173,14 +1380,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3333/TipoDeRefeicao/1",
+							"raw": "http://localhost:3333/Pedido/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3333",
 							"path": [
-								"TipoDeRefeicao",
+								"Pedido",
 								"1"
 							]
 						}
@@ -1188,44 +1395,33 @@
 					"response": []
 				},
 				{
-					"name": "Listar Tipos de Refeicoes",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
+					"name": "Listar Pedidos",
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://localhost:3333/TipoDeRefeicao",
+							"raw": "http://localhost:3333/Pedido/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3333",
 							"path": [
-								"TipoDeRefeicao"
+								"Pedido",
+								""
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Cadastrar Tipo de Refeicao",
+					"name": "Cadastrar Pedido",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"tipo\": 0\r\n}",
+							"raw": "{\r\n  \"clienteId\": 3,\r\n  \"cardapioId\": 1,\r\n  \"refeicaoId\": 1,\r\n  \"bebidaId\": 1,\r\n  \"dataHora\": \"2025-05-16T14:00:00.000Z\",\r\n  \"campusId\": 1,\r\n  \"blocoId\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1233,27 +1429,28 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3333/TipoDeRefeicao",
+							"raw": "http://localhost:3333/Pedido/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3333",
 							"path": [
-								"TipoDeRefeicao"
+								"Pedido",
+								""
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Cadastrar Tipo de Refeicao Erro",
+					"name": "Cadastrar Pedido Erro",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"tipo\": 6\r\n    // \"tipo\": 0 -> Cadastrar mais de uma vez vai da erro.\r\n}",
+							"raw": "{\r\n  \"clienteId\": \"\",\r\n  \"cardapioId\": \"\",\r\n  \"refeicaoId\": \"\",\r\n  \"bebidaId\": \"\",\r\n  \"dataHora\": \"\",\r\n  \"campusId\": \"\",\r\n  \"blocoId\": \"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1261,27 +1458,88 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3333/TipoDeRefeicao",
+							"raw": "http://localhost:3333/Pedido/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3333",
 							"path": [
-								"TipoDeRefeicao"
+								"Pedido",
+								""
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Alterar Tipo de Refeicao",
+					"name": "Cadastrar Pedido RN1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"clienteId\": 1,\r\n  \"cardapioId\": 1,\r\n  \"refeicaoId\": 1,\r\n  \"bebidaId\": 1,\r\n  \"dataHora\": \"2025-05-16T14:00:00.000Z\",\r\n  \"campusId\": 1,\r\n  \"blocoId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Pedido/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Pedido",
+								""
+							]
+						},
+						"description": "Regra 1: Não permitir que faça outro pedido enquanto tiver um pedido não finalizado ou em aberto"
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Pedido RN2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"clienteId\": 4,\r\n  \"cardapioId\": 1,\r\n  \"refeicaoId\": 1,\r\n  \"bebidaId\": 1,\r\n  \"dataHora\": \"2025-05-16T14:00:00.000Z\",\r\n  \"campusId\": 1,\r\n  \"blocoId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Pedido/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Pedido",
+								""
+							]
+						},
+						"description": "Regra 2: Não permitir pedidos de clientes bloqueados no sistema"
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Pedido",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"tipo\": 1\r\n}",
+							"raw": "{\r\n  \"clienteId\": 5,\r\n  \"cardapioId\": 1,\r\n  \"refeicaoId\": 1,\r\n  \"bebidaId\": 1,\r\n  \"dataHora\": \"2025-05-20T14:00:00.000Z\",\r\n  \"campusId\": 1,\r\n  \"blocoId\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1289,14 +1547,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3333/TipoDeRefeicao/1",
+							"raw": "http://localhost:3333/Pedido/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3333",
 							"path": [
-								"TipoDeRefeicao",
+								"Pedido",
 								"1"
 							]
 						}
@@ -1304,7 +1562,236 @@
 					"response": []
 				},
 				{
-					"name": "Deletar Tipo de Refeicao",
+					"name": "Deletar Pedido",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/Pedido/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Pedido",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cardapio",
+			"item": [
+				{
+					"name": "Cardapio",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Cardapio/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Cardapio",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Cardapios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Cardapio",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Cardapio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Cardapio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"data\": \"2025-01-01\",\r\n  \"descricao\": \"Cardápio do dia\",\r\n  \"bebidas\": [1],\r\n  \"refeicoes\": [1]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Cardapio",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Cardapio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Cardapio Erro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"data\": \"data-invalida\",\r\n  \"descricao\": \"\",\r\n  \"bebidas\": null,\r\n  \"refeicoes\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Cardapio",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Cardapio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Cardapio RN1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"data\": \"2025-06-21\",\r\n  \"descricao\": \"Cardápio conflito RN1\",\r\n  \"bebidas\": [1, 2],\r\n  \"refeicoes\": [3, 4]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Cardapio",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Cardapio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar Cardapio RN2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"data\": \"2025-08-19\",\r\n  \"descricao\": \"Cardápio (violando RN2)\",\r\n  \"bebidas\": [1, 3],\r\n  \"refeicoes\": [1, 2, 4]\r\n}\r\n\r\n// {\r\n//   \"data\": \"2025-08-19\",\r\n//   \"descricao\": \"Cardápio Funcionando\",\r\n//   \"bebidas\": [5, 6],\r\n//   \"refeicoes\": [5, 2]\r\n// }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Cardapio",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Cardapio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar Cadastro",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"data\": \"2025-06-05\",\r\n  \"descricao\": \"Cardápio atualizado com sucesso\",\r\n  \"bebidas\": [1, 2],\r\n  \"refeicoes\": [3, 4]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Cardapio/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Cardapio",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar Cadastro",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -1318,14 +1805,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3333/TipoDeRefeicao/1",
+							"raw": "http://localhost:3333/Cardapio/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "3333",
 							"path": [
-								"TipoDeRefeicao",
+								"Cardapio",
 								"1"
 							]
 						}
