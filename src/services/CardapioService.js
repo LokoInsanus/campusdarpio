@@ -20,32 +20,39 @@ class CardapioService {
   }
 
   static async create(req) {
-    const { data, descricao, bebidas, refeicoes } = req.body;
-    if (await this.verificarRegrasDeNegocio(req)) {
-      const t = await sequelize.transaction();
-      try {
-        const obj = await Cardapio.create({ data, descricao }, { transaction: t });
+    const { data, descricao, bebidas = [], refeicoes = [] } = req.body;
 
-        if (bebidas && bebidas.length > 0) {
-          const bebidasEncontradas = await Promise.all(bebidas.map(id => Bebida.findByPk(id, { transaction: t })));
-          if (bebidasEncontradas.some(b => !b)) throw new Error("Uma ou mais bebidas informadas não foram encontradas.");
-          await obj.addBebidas(bebidasEncontradas, { transaction: t });
+    const t = await sequelize.transaction();
+    try {
+      await this.verificarRegrasDeNegocio(data, bebidas, refeicoes, t);
+
+      const obj = await Cardapio.create({ data, descricao }, { transaction: t });
+
+      if (bebidas.length > 0) {
+        const bebidasEncontradas = await Promise.all(
+          bebidas.map(id => Bebida.findByPk(id, { transaction: t }))
+        );
+        if (bebidasEncontradas.some(b => !b)) {
+          throw new Error("Uma ou mais bebidas informadas não foram encontradas.");
         }
-
-        if (refeicoes && refeicoes.length > 0) {
-          const refeicoesEncontradas = await Promise.all(refeicoes.map(id => Refeicao.findByPk(id, { transaction: t })));
-          if (refeicoesEncontradas.some(r => !r)) throw new Error("Uma ou mais refeições informadas não foram encontradas.");
-          await obj.addRefeicoes(refeicoesEncontradas, { transaction: t });
-        }
-
-        await t.commit();
-        return await Cardapio.findByPk(obj.id, { include: { all: true, nested: true } });
-      } catch (error) {
-        await t.rollback();
-        throw new Error("Erro ao criar o cardápio");
+        await obj.addBebidas(bebidasEncontradas, { transaction: t });
       }
-    } else {
-      throw new Error("Regras de negócio não foram atendidas.");
+
+      if (refeicoes.length > 0) {
+        const refeicoesEncontradas = await Promise.all(
+          refeicoes.map(id => Refeicao.findByPk(id, { transaction: t }))
+        );
+        if (refeicoesEncontradas.some(r => !r)) {
+          throw new Error("Uma ou mais refeições informadas não foram encontradas.");
+        }
+        await obj.addRefeicoes(refeicoesEncontradas, { transaction: t });
+      }
+
+      await t.commit();
+      return await Cardapio.findByPk(obj.id, { include: { all: true, nested: true } });
+    } catch (error) {
+      await t.rollback();
+      throw new Error(error.message || "Erro ao criar o cardápio");
     }
   }
 
@@ -64,7 +71,7 @@ class CardapioService {
     obj.data = data;
     obj.descricao = descricao;
     await obj.save();
-    
+
     const bebidasEncontradas = await Promise.all(bebidas.map(id => Bebida.findByPk(id)));
     if (bebidasEncontradas.some(b => !b)) throw new Error("Uma ou mais bebidas informadas não foram encontradas.");
     await obj.setBebidas(bebidasEncontradas);
@@ -89,16 +96,17 @@ class CardapioService {
     }
   }
 
-  static async verificarRegrasDeNegocio(req) {
-    const { data, bebidas = [], refeicoes = [] } = req.body;
+  static async verificarRegrasDeNegocio(data, bebidas, refeicoes, transaction) {
+    await this.verificarRegraRN1(data, transaction);
+    await this.verificarRegraRN2(data, bebidas, refeicoes, transaction);
+    return true;
+  }
 
-    // RN1: Não permitir dois cardápios para a mesma semana.
+  static async verificarRegraRN1(data, transaction) {
     const dataObj = new Date(data);
     const diaSemana = dataObj.getDay();
-
     const inicioSemana = new Date(dataObj);
-    inicioSemana.setDate(dataObj.getDate() - (diaSemana === 0 ? 6 : diaSemana - 1));
-
+    inicioSemana.setDate(dataObj.getDate() - diaSemana);
     const fimSemana = new Date(inicioSemana);
     fimSemana.setDate(inicioSemana.getDate() + 6);
 
@@ -109,35 +117,54 @@ class CardapioService {
           inicio: inicioSemana.toISOString().slice(0, 10),
           fim: fimSemana.toISOString().slice(0, 10)
         },
-        type: QueryTypes.SELECT
+        type: QueryTypes.SELECT,
+        transaction
       }
     );
 
     if (cardapiosSemana.length > 0) {
       throw new Error("Já existe um cardápio cadastrado para esta semana.");
     }
+  }
 
-    // RN2: Verificar repetição de itens nos últimos 14 dias.
-    const dataLimite = new Date(dataObj);
-    dataLimite.setDate(dataObj.getDate() - 14);
+  static async verificarRegraRN2(data, bebidas, refeicoes, transaction) {
+    if ((bebidas.length + refeicoes.length) === 0) return;
 
-    const bebidaIds = bebidas.length > 0 ? bebidas.join(',') : 'NULL';
-    const refeicaoIds = refeicoes.length > 0 ? refeicoes.join(',') : 'NULL';
-
-    const [result] = await sequelize.query(
-      `SELECT COUNT(DISTINCT cb.bebida_id) AS bebidas_usadas, COUNT(DISTINCT cr.refeicao_id) AS refeicoes_usadas FROM cardapios c LEFT JOIN cardapio_bebida cb ON c.id = cb.cardapio_id AND cb.bebida_id IN (${bebidaIds}) LEFT JOIN cardapio_refeicao cr ON c.id = cr.cardapio_id AND cr.refeicao_id IN (${refeicaoIds}) WHERE c.data >= :dataLimite;`, { replacements: { dataLimite: dataLimite.toISOString().slice(0, 10) }, type: QueryTypes.SELECT }
+    const [anterior] = await sequelize.query(
+      `SELECT id FROM cardapios
+     WHERE data < :data
+     ORDER BY data DESC
+     LIMIT 1;`,
+      {
+        replacements: { data },
+        type: QueryTypes.SELECT,
+        transaction
+      }
     );
 
+    if (!anterior) return;
 
-    const totalItens = bebidas.length + refeicoes.length;
-    const itensRepetidos = Number(result.bebidas_usadas) + Number(result.refeicoes_usadas);
+    const cardapioId = anterior.id;
 
-    if (totalItens > 0 && itensRepetidos / totalItens > 0.5) {
-      throw new Error("Mais da metade dos itens já foram usados em cardápios recentes. Varie os itens!");
+    const [usos] = await sequelize.query(
+      `SELECT
+       (SELECT COUNT(*) FROM cardapio_bebida WHERE cardapio_id = :id AND bebida_id IN (${bebidas.join(',') || 'NULL'})) AS bebidas_iguais,
+       (SELECT COUNT(*) FROM cardapio_refeicao WHERE cardapio_id = :id AND refeicao_id IN (${refeicoes.join(',') || 'NULL'})) AS refeicoes_iguais;`,
+      {
+        replacements: { id: cardapioId },
+        type: QueryTypes.SELECT,
+        transaction
+      }
+    );
+
+    const total = bebidas.length + refeicoes.length;
+    const iguais = Number(usos.bebidas_iguais) + Number(usos.refeicoes_iguais);
+
+    if (total > 0 && iguais / total > 0.5) {
+      throw new Error("Mais da metade dos itens são iguais ao último cardápio. Varie os itens!");
     }
-
-    return true;
   }
+
 
 }
 

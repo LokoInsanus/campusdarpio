@@ -70,16 +70,34 @@ function databaseInserts() {
         const bebida2 = await Bebida.create({ nome: 'Suco de Laranja', tipo: '1', preco: 4.0, quantidade: 0 });
         const bebida3 = await Bebida.create({ nome: 'Água', tipo: '2', preco: 2.5, quantidade: 0 });
         const bebida4 = await Bebida.create({ nome: 'Guaraná', tipo: '0', preco: 5.5, quantidade: 0 });
+        const bebida5 = await Bebida.create({ nome: 'Chá Gelado', tipo: '2', preco: 3.5, quantidade: 0 });
+        const bebida6 = await Bebida.create({ nome: 'Café Preto', tipo: '3', preco: 2.0, quantidade: 0 });
 
-        const cardapio1 = await Cardapio.create({ data: new Date(), descricao: 'Cardápio do dia', campusId: campus1.id });
-        const cardapio2 = await Cardapio.create({ data: new Date(), descricao: 'Cardápio especial', campusId: campus2.id });
-        const cardapio3 = await Cardapio.create({ data: new Date(), descricao: 'Cardápio vegetariano', campusId: campus3.id });
-        const cardapio4 = await Cardapio.create({ data: new Date(), descricao: 'Cardápio fitness', campusId: campus4.id });
 
         const refeicao1 = await Refeicao.create({ nome: 'Arroz com Feijão', descricao: 'Prato típico', tipo: '0', preco: 10.0, quantidade: 50 });
         const refeicao2 = await Refeicao.create({ nome: 'Macarronada', descricao: 'Macarrão ao molho', tipo: '1', preco: 12.0, quantidade: 40 });
         const refeicao3 = await Refeicao.create({ nome: 'Salada', descricao: 'Salada verde', tipo: '2', preco: 8.0, quantidade: 30 });
         const refeicao4 = await Refeicao.create({ nome: 'Frango Grelhado', descricao: 'Frango com legumes', tipo: '0', preco: 15.0, quantidade: 25 });
+        const refeicao5 = await Refeicao.create({ nome: 'Lasanha', descricao: 'Lasanha à bolonhesa', tipo: '1', preco: 18.0, quantidade: 20 });
+        const refeicao6 = await Refeicao.create({ nome: 'Sopa de Legumes', descricao: 'Sopa leve e nutritiva', tipo: '4', preco: 9.0, quantidade: 35 });
+
+        const cardapio1 = await Cardapio.create({ data: new Date("2025-05-20"), descricao: 'Cardápio do semana 1' });
+        await cardapio1.addBebidas([bebida1, bebida2, bebida3]);
+        await cardapio1.addRefeicoes([refeicao1, refeicao2, refeicao3]);
+
+        const cardapio2 = await Cardapio.create({ data: new Date("2025-05-30"), descricao: 'Cardápio do semana RN1' });
+        await cardapio2.addBebidas([bebida1, bebida2]);
+        await cardapio2.addRefeicoes([refeicao1, refeicao2]);
+
+        const cardapio3 = await Cardapio.create({ data: new Date("2025-08-03"), descricao: "Cardápio 3" });
+        await cardapio3.addBebidas([bebida1, bebida2]);
+        await cardapio3.addRefeicoes([refeicao1, refeicao2]);
+
+        const cardapio4 = await Cardapio.create({ data: new Date("2025-08-09"), descricao: "Cardápio 4" });
+        await cardapio4.addBebidas([bebida5, bebida6]);
+        await cardapio4.addRefeicoes([refeicao5, refeicao6]);
+
+
 
         const pedido1 = await Pedido.create({ clienteId: cliente1.id, cardapioId: cardapio1.id, refeicaoId: refeicao1.id, bebidaId: bebida1.id, dataHora: new Date(), campusId: campus1.id, blocoId: bloco1.id });
         const pedido2 = await Pedido.create({ clienteId: cliente2.id, cardapioId: cardapio2.id, refeicaoId: refeicao2.id, bebidaId: bebida2.id, dataHora: new Date(), campusId: campus2.id, blocoId: bloco2.id });

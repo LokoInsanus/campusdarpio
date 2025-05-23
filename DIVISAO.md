@@ -29,7 +29,7 @@ Cardápio
 
 Regra 1: Não permitir dois cardápios para a mesma semana.
 
-Regra 2: Não permitir criação de cardápio se mais da metade dos itens (bebidas/refeições) já tiverem sido usados em outro cardápio nas últimas 2 semanas.
+Regra 2: Não permitir cardápio com mais da metade dos itens iguais ao anterior.
 
 Relatórios:
 
