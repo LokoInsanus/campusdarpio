@@ -44,9 +44,9 @@ class Cliente extends Model {
                 },
             },
             status: {
-            type: DataTypes.BOOLEAN,
+            type: DataTypes.STRING,
             allowNull: false,
-            defaultValue: true,
+            defaultValue: 'disponível',
             validate: {
                 notNull: { msg: 'O status não pode ser nulo' },
             },
