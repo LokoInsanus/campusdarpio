@@ -85,6 +85,7 @@ function databaseInserts() {
         const pedido2 = await Pedido.create({ clienteId: cliente2.id, cardapioId: cardapio2.id, refeicaoId: refeicao2.id, bebidaId: bebida2.id, dataHora: new Date(), campusId: campus2.id, blocoId: bloco2.id });
         const pedido3 = await Pedido.create({ clienteId: cliente3.id, cardapioId: cardapio3.id, refeicaoId: refeicao3.id, bebidaId: bebida3.id, dataHora: new Date(), campusId: campus3.id, blocoId: bloco3.id });
         const pedido4 = await Pedido.create({ clienteId: cliente4.id, cardapioId: cardapio4.id, refeicaoId: refeicao4.id, bebidaId: bebida4.id, dataHora: new Date(), campusId: campus4.id, blocoId: bloco4.id });
+        const pedido5 = await Pedido.create({ clienteId: cliente1.id, cardapioId: cardapio1.id, refeicaoId: refeicao1.id, bebidaId: bebida1.id, dataHora: new Date(), campusId: campus1.id, blocoId: bloco1.id });
 
         const entrega1 = await Entrega.create({ pedidoId: pedido1.id, entregadorId: entregador1.id, inicio_entrega: new Date(), fim_entrega: new Date() });
         const entrega2 = await Entrega.create({ pedidoId: pedido2.id, entregadorId: entregador2.id, inicio_entrega: new Date(), fim_entrega: new Date() });
