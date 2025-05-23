@@ -31,4 +31,15 @@ Regra 1: Não permitir dois cardápios para a mesma semana.
 
 Regra 2: Não permitir criação de cardápio se mais da metade dos itens (bebidas/refeições) já tiverem sido usados em outro cardápio nas últimas 2 semanas.
 
-Regra 2*: O cascade já poderia fazer isso automaticamente, mas fiz como uma regra de negócio. Mesmo não precisando.
+Relatórios:
+
+6 Relatórios/Listagens
+
+Quantidade de pedidos (campus, bloco, cliente, data)
+Quantidade de entregas (campus, bloco, entregador, data)
+
+Refeições mais pedidas/entregues (campus, bloco, data)
+Bebida mais pedidas/entregues (campus, bloco, data)
+
+Tipos de refeições (cardápio, data)
+Tempo médio de entrega (entregador)
