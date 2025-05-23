@@ -102,6 +102,7 @@ class CardapioService {
     return true;
   }
 
+  // Regra 1: Não permitir dois cardápios para a mesma semana.
   static async verificarRegraRN1(data, transaction) {
     const dataObj = new Date(data);
     const diaSemana = dataObj.getDay();
@@ -127,6 +128,7 @@ class CardapioService {
     }
   }
 
+  // Regra 2: Não permitir cardápio com mais da metade dos itens iguais ao anterior.
   static async verificarRegraRN2(data, bebidas, refeicoes, transaction) {
     if ((bebidas.length + refeicoes.length) === 0) return;
 
