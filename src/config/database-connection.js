@@ -51,10 +51,10 @@ function databaseInserts() {
         const bloco3 = await Bloco.create({ nome: 'Bloco C', tipo: '0', capacidade: 120, descricao: 'Bloco de laboratórios', campusId: campus3.id });
         const bloco4 = await Bloco.create({ nome: 'Bloco D', tipo: '1', capacidade: 90, descricao: 'Bloco de esportes', campusId: campus4.id });
 
-        const cliente1 = await Cliente.create({ nome: 'João Silva', cpf: '123.456.789-00', telefone: '(11)91234-5678', endereco: 'Rua Principal, 123', status: true });
-        const cliente2 = await Cliente.create({ nome: 'Ana Souza', cpf: '234.567.890-11', telefone: '(11)92345-6789', endereco: 'Rua Norte, 456', status: true });
-        const cliente3 = await Cliente.create({ nome: 'Pedro Lima', cpf: '345.678.901-22', telefone: '(11)93456-7890', endereco: 'Rua Sul, 789', status: false });
-        const cliente4 = await Cliente.create({ nome: 'Mariana Costa', cpf: '456.789.012-33', telefone: '(11)94567-8901', endereco: 'Rua Leste, 321', status: true });
+        const cliente1 = await Cliente.create({ nome: 'João Silva', cpf: '123.456.789-00', telefone: '(11)91234-5678', endereco: 'Rua Principal, 123', status: 'disponível' });
+        const cliente2 = await Cliente.create({ nome: 'Ana Souza', cpf: '234.567.890-11', telefone: '(11)92345-6789', endereco: 'Rua Norte, 456', status: 'disponível' });
+        const cliente3 = await Cliente.create({ nome: 'Pedro Lima', cpf: '345.678.901-22', telefone: '(11)93456-7890', endereco: 'Rua Sul, 789', status: 'disponível' });
+        const cliente4 = await Cliente.create({ nome: 'Mariana Costa', cpf: '456.789.012-33', telefone: '(11)94567-8901', endereco: 'Rua Leste, 321', status: 'bloqueado' });
 
         const funcionario1 = await Funcionario.create({ nome: 'Maria Oliveira', cpf: '987.654.321-00', cargo: 'Cozinheira', telefone: '(11)99876-5432', endereco: 'Rua Principal, 123', data_de_emissao: new Date(), campusId: campus1.id });
         const funcionario2 = await Funcionario.create({ nome: 'Carlos Pereira', cpf: '876.543.210-11', cargo: 'Auxiliar', telefone: '(11)98765-4321', endereco: 'Rua Norte, 456', data_de_emissao: new Date(), campusId: campus2.id });
