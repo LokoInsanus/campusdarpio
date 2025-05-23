@@ -1656,7 +1656,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"data\": \"2025-01-01\",\r\n  \"descricao\": \"Cardápio do dia\",\r\n  \"bebidas\": [1],\r\n  \"refeicoes\": [1]\r\n}",
+							"raw": "{\r\n  \"data\": \"2025-04-22\",\r\n  \"descricao\": \"Cardápio do dia\",\r\n  \"bebidas\": [1],\r\n  \"refeicoes\": [1]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1712,7 +1712,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"data\": \"2025-06-21\",\r\n  \"descricao\": \"Cardápio conflito RN1\",\r\n  \"bebidas\": [1, 2],\r\n  \"refeicoes\": [3, 4]\r\n}",
+							"raw": "{\r\n  \"data\": \"2025-05-22\",\r\n  \"descricao\": \"Cardápio conflito RN1\",\r\n  \"bebidas\": [1, 2],\r\n  \"refeicoes\": [3, 4]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1729,7 +1729,8 @@
 							"path": [
 								"Cardapio"
 							]
-						}
+						},
+						"description": "Regra 1: Não permitir dois cardápios para a mesma semana."
 					},
 					"response": []
 				},
@@ -1740,7 +1741,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"data\": \"2025-08-19\",\r\n  \"descricao\": \"Cardápio (violando RN2)\",\r\n  \"bebidas\": [1, 3],\r\n  \"refeicoes\": [1, 2, 4]\r\n}\r\n\r\n// {\r\n//   \"data\": \"2025-08-19\",\r\n//   \"descricao\": \"Cardápio Funcionando\",\r\n//   \"bebidas\": [5, 6],\r\n//   \"refeicoes\": [5, 2]\r\n// }\r\n",
+							"raw": "{\r\n  \"data\": \"2025-08-15\",\r\n  \"descricao\": \"Cardápio Afeta RN2\",\r\n  \"bebidas\": [5, 6],\r\n  \"refeicoes\": [5]\r\n}\r\n\r\n// {\r\n//   \"data\": \"2025-08-15\",\r\n//   \"descricao\": \"Cardápio Não afeta RN2\",\r\n//   \"bebidas\": [5],\r\n//   \"refeicoes\": [1, 2]\r\n// }\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1757,7 +1758,8 @@
 							"path": [
 								"Cardapio"
 							]
-						}
+						},
+						"description": "Regra 2: Não permitir criação de cardápio se mais da metade dos itens (bebidas/refeições) já tiverem sido usados em outro cardápio nas últimas 2 semanas."
 					},
 					"response": []
 				},
