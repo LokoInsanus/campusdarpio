@@ -1,5 +1,5 @@
 import { Pedido } from "../models/Pedido.js";
-import { Entrega } from "../models/Entrega.js"; 
+import { Entrega } from "../models/Entrega.js";
 import { Cliente } from "../models/Cliente.js";
 
 import sequelize from '../config/database-connection.js';
@@ -68,6 +68,7 @@ class PedidoService {
     }
   }
 
+  // Marcelo de Oliveira Costa Pereira
   static async findTotaisCampusBlocoClienteData(req) {
     const { campus_id, bloco_id, cliente_id, data_hora } = req.params;
     const objs = await sequelize.query(
@@ -78,8 +79,8 @@ class PedidoService {
        AND (:cliente_id IS NULL OR cliente_id = :cliente_id)
        AND (:data_hora IS NULL OR data_hora >= :data_hora)`,
       {
-      type: QueryTypes.SELECT,
-      replacements: { campus_id, bloco_id, cliente_id, data_hora }
+        type: QueryTypes.SELECT,
+        replacements: { campus_id, bloco_id, cliente_id, data_hora }
       }
     );
     return objs;

@@ -71,6 +71,7 @@ class EntregaService {
     }
   }
 
+  // Marcelo de Oliveira Costa Pereira
   static async findTotaisEntregadorData(req) {
     console.log(req);
     const { entregador_Id, dataInicio, dataFim } = req.params;

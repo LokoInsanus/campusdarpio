@@ -74,6 +74,42 @@
 					"response": []
 				},
 				{
+					"name": "Listar Bebidas Mais Pedidas (campus, bloco, data)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// Usar no lugar do NULL a data que estiver no dia ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Bebida/BebidasMaisPedidas/1/1/null",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Bebida",
+								"BebidasMaisPedidas",
+								"1",
+								"1",
+								"null"
+							]
+						},
+						"description": "Usar no lugar do NULL a data que estiver no dia"
+					},
+					"response": []
+				},
+				{
 					"name": "Cadastrar Bebida",
 					"request": {
 						"method": "POST",
@@ -1046,6 +1082,42 @@
 					"response": []
 				},
 				{
+					"name": "Listar Refeicoes Mais Pedidas  (campus, bloco, data) Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// Usar no lugar do NULL a data que estiver no dia ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Refeicao/RefeicoesMaisPedidas/1/1/null",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Refeicao",
+								"RefeicoesMaisPedidas",
+								"1",
+								"1",
+								"null"
+							]
+						},
+						"description": "Usar no lugar do NULL a data que estiver no dia"
+					},
+					"response": []
+				},
+				{
 					"name": "Cadastrar Refeicao",
 					"request": {
 						"method": "POST",
@@ -1189,6 +1261,50 @@
 							"port": "3333",
 							"path": [
 								"Entrega"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Totais (Entregador, Data)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/Entrega/TotaisEntregadorData/1/2025-01-01/2025-05-31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Entrega",
+								"TotaisEntregadorData",
+								"1",
+								"2025-01-01",
+								"2025-05-31"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Tempo Médio (Entregador)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/Entrega/TempoMedioEntregaPorEntregador/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Entrega",
+								"TempoMedioEntregaPorEntregador",
+								"1"
 							]
 						}
 					},
@@ -1415,6 +1531,42 @@
 					"response": []
 				},
 				{
+					"name": "Listar Totais (Campus, Bloco Cliente, Data)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Pedido/TotaisCampusBlocoClienteData/1/1/1/2025-01-01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Pedido",
+								"TotaisCampusBlocoClienteData",
+								"1",
+								"1",
+								"1",
+								"2025-01-01"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Cadastrar Pedido",
 					"request": {
 						"method": "POST",
@@ -1450,7 +1602,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"clienteId\": \"\",\r\n  \"cardapioId\": \"\",\r\n  \"refeicaoId\": \"\",\r\n  \"bebidaId\": \"\",\r\n  \"dataHora\": \"\",\r\n  \"campusId\": \"\",\r\n  \"blocoId\": \"\"\r\n}",
+							"raw": "{\r\n  \"clienteId\": 1,\r\n  \"cardapioId\": \"\",\r\n  \"refeicaoId\": \"\",\r\n  \"bebidaId\": \"\",\r\n  \"dataHora\": \"\",\r\n  \"campusId\": \"\",\r\n  \"blocoId\": \"\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1644,6 +1796,40 @@
 							"port": "3333",
 							"path": [
 								"Cardapio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Totais (cardápio, data)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/Cardapio/TiposdeRefeicoesCardapioData/3/2025-08-02",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"Cardapio",
+								"TiposdeRefeicoesCardapioData",
+								"3",
+								"2025-08-02"
 							]
 						}
 					},
