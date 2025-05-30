@@ -32,6 +32,14 @@ class RefeicaoController {
             .then(() => res.status(204).send())
             .catch(next);
     }
+
+    // Gabriel Oliveira Natalli Augusto - Função de relatório: refeições mais pedidas
+    // Controller
+    static async RefeicoesMaisPedidas(req, res, next) {
+        RefeicaoService.RefeicoesMaisPedidas(req)
+            .then(resultados => res.json(resultados))
+            .catch(next);
+    }
 }
 
 export { RefeicaoController } ;

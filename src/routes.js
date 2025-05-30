@@ -18,6 +18,8 @@ routes.get("/Bebida/:id", BebidaController.findByPk);
 routes.post("/Bebida", BebidaController.create);
 routes.put("/Bebida/:id", BebidaController.update);
 routes.delete("/Bebida/:id", BebidaController.delete);
+// Gabriel Oliveira Natalli Augusto - Rota de relatório: bebidas mais pedidas
+routes.get("/Bebida/BebidasMaisPedidas/:campus_id/:bloco_id/:data", BebidaController.BebidasMaisPedidas);
 
 routes.get("/Bloco", BlocoController.findAll);
 routes.get("/Bloco/:id", BlocoController.findByPk);
@@ -54,6 +56,8 @@ routes.get("/Refeicao/:id", RefeicaoController.findByPk);
 routes.post("/Refeicao", RefeicaoController.create);
 routes.put("/Refeicao/:id", RefeicaoController.update);
 routes.delete("/Refeicao/:id", RefeicaoController.delete);
+// Gabriel Oliveira Natalli Augusto - Rota de relatório: refeições mais pedidas
+routes.get("/Refeicao/RefeicoesMaisPedidas/:campus_id/:bloco_id/:data", RefeicaoController.RefeicoesMaisPedidas);
 
 routes.get("/Entrega", EntregaController.findAll);
 routes.get("/Entrega/:id", EntregaController.findByPk);

@@ -39,8 +39,8 @@ Precisam ser de Filtragem ou Totalização
 Quantidade de pedidos (campus, bloco, cliente, data)
 Quantidade de entregas (campus, bloco, entregador, data)
 
-Refeições mais pedidas/entregues (campus, bloco, data)
-Bebida mais pedidas/entregues (campus, bloco, data)
+Refeições mais pedidas (campus, bloco, data) - Gabriel
+Bebida mais pedidas (campus, bloco, data) - Gabriel
 
 Tipos de refeições (cardápio, data)
 Tempo médio de entrega (entregador)

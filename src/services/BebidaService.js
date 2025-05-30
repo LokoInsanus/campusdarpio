@@ -1,4 +1,6 @@
 import { Bebida } from "../models/Bebida.js";
+import sequelize from '../config/database-connection.js';
+import { QueryTypes } from 'sequelize';
 
 // Roger
 
@@ -40,6 +42,36 @@ class BebidaService {
     } catch (error) {
       throw "Não é possível remover uma Bebida associado a cardápio ou pedido!";
     }
+  }
+
+  // Gabriel Oliveira Natalli Augusto - Função de relatório: bebidas mais pedidas
+  static async BebidasMaisPedidas(req) {
+    let { campus_id, bloco_id, data } = req.params;
+
+    campus_id = campus_id === "null" ? null : campus_id;
+    bloco_id = bloco_id === "null" ? null : bloco_id;
+    if (data && data !== "null") {
+      data = new Date(data).toISOString().slice(0, 10);
+    } else {
+      data = null;
+    }
+
+    const resultados = await sequelize.query(
+      `SELECT b.nome, COUNT(*) AS quantidade
+     FROM pedidos p
+     INNER JOIN bebidas b ON p.bebida_id = b.id
+     WHERE (:campus_id IS NULL OR p.campus_id = :campus_id)
+       AND (:bloco_id IS NULL OR p.bloco_id = :bloco_id)
+       AND (:data IS NULL OR DATE(p.data_hora) = :data)
+     GROUP BY b.nome
+     ORDER BY quantidade DESC`,
+      {
+        type: QueryTypes.SELECT,
+        replacements: { campus_id, bloco_id, data }
+      }
+    );
+
+    return resultados;
   }
 
 }

@@ -32,6 +32,14 @@ class BebidaController {
             .then(obj => res.json(obj))
             .catch(next);
     }
+
+    // Gabriel Oliveira Natalli Augusto - Função de relatório: bebidas mais pedidas
+    // Controller
+    static async BebidasMaisPedidas(req, res, next) {
+        BebidaService.BebidasMaisPedidas(req)
+            .then(resultados => res.json(resultados))
+            .catch(next);
+    }
 }
 
 export { BebidaController };
