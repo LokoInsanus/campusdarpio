@@ -68,6 +68,23 @@ class PedidoService {
     }
   }
 
+  static async findTotaisCampusBlocoClienteData(req) {
+    const { campus_id, bloco_id, cliente_id, data_hora } = req.params;
+    const objs = await sequelize.query(
+      `SELECT COUNT(*) AS total 
+       FROM pedidos 
+       WHERE (:campus_id IS NULL OR campus_id = :campus_id)
+       AND (:bloco_id IS NULL OR bloco_id = :bloco_id)
+       AND (:cliente_id IS NULL OR cliente_id = :cliente_id)
+       AND (:data_hora IS NULL OR data_hora >= :data_hora)`,
+      {
+      type: QueryTypes.SELECT,
+      replacements: { campus_id, bloco_id, cliente_id, data_hora }
+      }
+    );
+    return objs;
+  }
+
   static async verificarRegrasDeNegocio(req) {
     const { clienteId } = req.body;
 

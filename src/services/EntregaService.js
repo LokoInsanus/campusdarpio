@@ -71,6 +71,23 @@ class EntregaService {
     }
   }
 
+  static async findTotaisEntregadorData(req) {
+    console.log(req);
+    const { entregador_Id, dataInicio, dataFim } = req.params;
+    const objs = await sequelize.query(
+      `SELECT COUNT(*) AS total 
+       FROM entregas 
+       WHERE (:entregador_Id IS NULL OR entregador_Id = :entregador_Id)
+       AND (:dataInicio IS NULL OR inicio_entrega >= :dataInicio)
+       AND (:dataFim IS NULL OR fim_entrega <= :dataFim)`,
+      {
+      type: QueryTypes.SELECT,
+      replacements: { entregador_Id, dataInicio, dataFim }
+      }
+    );
+    return objs;
+  }
+
   static async verificarRegrasDeNegocio(req) {
     const { pedidoId, entregadorId, inicio_entrega, fim_entrega } = req.body;
 

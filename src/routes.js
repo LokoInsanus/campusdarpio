@@ -60,12 +60,14 @@ routes.get("/Entrega/:id", EntregaController.findByPk);
 routes.post("/Entrega", EntregaController.create);
 routes.put("/Entrega/:id", EntregaController.update);
 routes.delete("/Entrega/:id", EntregaController.delete);
+routes.get("/Entrega/TotaisEntregadorData/:entregador_Id/:dataInicio/:dataFim", EntregaController.totaisEntregadorData);
 
 routes.get("/Pedido", PedidoController.findAll);
 routes.get("/Pedido/:id", PedidoController.findByPk);
 routes.post("/Pedido", PedidoController.create);
 routes.put("/Pedido/:id", PedidoController.update);
 routes.delete("/Pedido/:id", PedidoController.delete);
+routes.get("/Pedido/TotaisCampusBlocoClienteData/:campus_id/:bloco_id/:cliente_id/:data_hora", PedidoController.totaisCampusBlocoClienteData);
 
 routes.get("/Cardapio", CardapioController.findAll);
 routes.get("/Cardapio/:id", CardapioController.findByPk);

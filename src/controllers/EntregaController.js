@@ -34,6 +34,11 @@ class EntregaController {
         .catch(next);
   }
 
+  static async totaisEntregadorData(req, res, next) {
+    EntregaService.findTotaisEntregadorData(req)
+        .then(objs => res.json(objs))
+        .catch(next);
+  }
 }
 
 export { EntregaController };

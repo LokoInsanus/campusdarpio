@@ -34,6 +34,12 @@ class PedidoController {
         .catch(next);
   }
 
+  static async totaisCampusBlocoClienteData(req, res, next) {
+    PedidoService.findTotaisCampusBlocoClienteData(req)
+        .then(objs => res.json(objs))
+        .catch(next);
+  }
+
 }
 
 export { PedidoController };
