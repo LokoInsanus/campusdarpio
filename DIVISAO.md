@@ -32,6 +32,7 @@ Regra 1: Não permitir dois cardápios para a mesma semana.
 Regra 2: Não permitir cardápio com mais da metade dos itens iguais ao anterior.
 
 Relatórios:
+Precisam ser de Filtragem ou Totalização
 
 6 Relatórios/Listagens
 

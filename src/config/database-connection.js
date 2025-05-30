@@ -97,8 +97,6 @@ function databaseInserts() {
         await cardapio4.addBebidas([bebida5, bebida6]);
         await cardapio4.addRefeicoes([refeicao5, refeicao6]);
 
-
-
         const pedido1 = await Pedido.create({ clienteId: cliente1.id, cardapioId: cardapio1.id, refeicaoId: refeicao1.id, bebidaId: bebida1.id, dataHora: new Date(), campusId: campus1.id, blocoId: bloco1.id });
         const pedido2 = await Pedido.create({ clienteId: cliente2.id, cardapioId: cardapio2.id, refeicaoId: refeicao2.id, bebidaId: bebida2.id, dataHora: new Date(), campusId: campus2.id, blocoId: bloco2.id });
         const pedido3 = await Pedido.create({ clienteId: cliente3.id, cardapioId: cardapio3.id, refeicaoId: refeicao3.id, bebidaId: bebida3.id, dataHora: new Date(), campusId: campus3.id, blocoId: bloco3.id });

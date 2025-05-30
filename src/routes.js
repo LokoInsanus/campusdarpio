@@ -74,5 +74,7 @@ routes.get("/Cardapio/:id", CardapioController.findByPk);
 routes.post("/Cardapio", CardapioController.create);
 routes.put("/Cardapio/:id", CardapioController.update);
 routes.delete("/Cardapio/:id", CardapioController.delete);
+routes.get("/Cardapio/TiposdeRefeicoesCardapioData/:cardapio_id/:data", CardapioController.TotaisTipoRefeicoesCardapioData);
+
 
 export default routes;

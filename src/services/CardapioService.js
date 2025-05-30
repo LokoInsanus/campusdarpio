@@ -96,6 +96,37 @@ class CardapioService {
     }
   }
 
+  static async TotaisTipoRefeicoesCardapioData(req) {
+    let { cardapio_id, data } = req.params;
+
+    cardapio_id = cardapio_id === "null" ? null : cardapio_id;
+
+    if (data && data !== "null") {
+      data = new Date(data).toISOString().slice(0, 10);
+    } else {
+      data = null;
+    }
+
+    const objs = await sequelize.query(
+      `SELECT r.tipo, COUNT(DISTINCT r.id) AS quantidade
+     FROM refeicoes r
+     INNER JOIN cardapio_refeicao cr ON r.id = cr.refeicao_id
+     INNER JOIN cardapios c ON cr.cardapio_id = c.id
+     WHERE (:cardapio_id IS NULL OR c.id = :cardapio_id)
+       AND (:data IS NULL OR c.data = :data)
+     GROUP BY r.tipo
+     ORDER BY quantidade DESC`,
+      {
+        type: QueryTypes.SELECT,
+        replacements: { cardapio_id, data }
+      }
+    );
+
+    return objs;
+  }
+
+
+
   static async verificarRegrasDeNegocio(data, bebidas, refeicoes, transaction) {
     await this.verificarRegraRN1(data, transaction);
     await this.verificarRegraRN2(data, bebidas, refeicoes, transaction);
