@@ -81,12 +81,36 @@ class EntregaService {
        AND (:dataInicio IS NULL OR inicio_entrega >= :dataInicio)
        AND (:dataFim IS NULL OR fim_entrega <= :dataFim)`,
       {
-      type: QueryTypes.SELECT,
-      replacements: { entregador_Id, dataInicio, dataFim }
+        type: QueryTypes.SELECT,
+        replacements: { entregador_Id, dataInicio, dataFim }
       }
     );
     return objs;
   }
+
+  // Roger de Assis Tedesco - Tempo médio de entrega por entregador
+  static async TempoMedioPorEntregador(req) {
+    const { entregador_id } = req.params;
+
+    const resultados = await sequelize.query(
+      `SELECT 
+       e.nome AS entregador,
+       AVG(strftime('%s', en.fim_entrega) - strftime('%s', en.inicio_entrega)) AS tempo_medio_segundos
+     FROM entregas en
+     INNER JOIN entregadores e ON en.entregador_id = e.id
+     WHERE en.fim_entrega IS NOT NULL
+       AND (:entregador_id IS NULL OR en.entregador_id = :entregador_id)
+     GROUP BY e.id
+     ORDER BY tempo_medio_segundos ASC`,
+      {
+        type: QueryTypes.SELECT,
+        replacements: { entregador_id: entregador_id === 'null' ? null : entregador_id }
+      }
+    );
+
+    return resultados;
+  }
+
 
   static async verificarRegrasDeNegocio(req) {
     const { pedidoId, entregadorId, inicio_entrega, fim_entrega } = req.body;
@@ -104,11 +128,11 @@ class EntregaService {
       const diffMs = fim - inicio;
       const diffHoras = diffMs / (1000 * 60 * 60);
       if (diffHoras > 1) {
-      const entregador = await Entregador.findByPk(entregadorId);
-      if (entregador) {
-        entregador.status = 'inativo';
-        await entregador.save();
-      }
+        const entregador = await Entregador.findByPk(entregadorId);
+        if (entregador) {
+          entregador.status = 'inativo';
+          await entregador.save();
+        }
       }
     }
 

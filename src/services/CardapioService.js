@@ -125,8 +125,6 @@ class CardapioService {
     return objs;
   }
 
-
-
   static async verificarRegrasDeNegocio(data, bebidas, refeicoes, transaction) {
     await this.verificarRegraRN1(data, transaction);
     await this.verificarRegraRN2(data, bebidas, refeicoes, transaction);

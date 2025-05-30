@@ -38,12 +38,12 @@ class CardapioController {
       .catch(next);
   }
 
+  // Roger de Assis Tedesco - Total de refeições por tipo no cardápio
   static async TotaisTipoRefeicoesCardapioData(req, res, next) {
     CardapioService.TotaisTipoRefeicoesCardapioData(req)
       .then(resultados => res.json(resultados))
       .catch(next);
   }
-
 
 }
 

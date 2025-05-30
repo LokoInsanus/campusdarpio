@@ -65,6 +65,10 @@ routes.post("/Entrega", EntregaController.create);
 routes.put("/Entrega/:id", EntregaController.update);
 routes.delete("/Entrega/:id", EntregaController.delete);
 routes.get("/Entrega/TotaisEntregadorData/:entregador_Id/:dataInicio/:dataFim", EntregaController.totaisEntregadorData);
+// Roger de Assis Tedesco - Rota tempo médio de entrega por entregador
+routes.get("/Entrega/TempoMedioEntregaPorEntregador/:entregador_id?", EntregaController.TempoMedioPorEntregador);
+
+
 
 routes.get("/Pedido", PedidoController.findAll);
 routes.get("/Pedido/:id", PedidoController.findByPk);
@@ -78,6 +82,7 @@ routes.get("/Cardapio/:id", CardapioController.findByPk);
 routes.post("/Cardapio", CardapioController.create);
 routes.put("/Cardapio/:id", CardapioController.update);
 routes.delete("/Cardapio/:id", CardapioController.delete);
+// Roger de Assis Tedesco - Rota de cardápios mais pedidos
 routes.get("/Cardapio/TiposdeRefeicoesCardapioData/:cardapio_id/:data", CardapioController.TotaisTipoRefeicoesCardapioData);
 
 

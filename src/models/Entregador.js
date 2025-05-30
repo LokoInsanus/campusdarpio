@@ -76,7 +76,7 @@ class Entregador extends Model {
             {
                 sequelize,
                 modelName: 'Entregador',
-                tableName: 'entregadors',
+                tableName: 'entregadores',
             }
         );
     }
