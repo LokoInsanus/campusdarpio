@@ -103,10 +103,26 @@ function databaseInserts() {
         const pedido4 = await Pedido.create({ clienteId: cliente4.id, cardapioId: cardapio4.id, refeicaoId: refeicao4.id, bebidaId: bebida4.id, dataHora: new Date(), campusId: campus4.id, blocoId: bloco4.id });
         const pedido5 = await Pedido.create({ clienteId: cliente1.id, cardapioId: cardapio1.id, refeicaoId: refeicao1.id, bebidaId: bebida1.id, dataHora: new Date(), campusId: campus1.id, blocoId: bloco1.id });
 
-        const entrega1 = await Entrega.create({ pedidoId: pedido1.id, entregadorId: entregador1.id, inicio_entrega: new Date(), fim_entrega: new Date() });
-        const entrega2 = await Entrega.create({ pedidoId: pedido2.id, entregadorId: entregador2.id, inicio_entrega: new Date(), fim_entrega: new Date() });
-        const entrega3 = await Entrega.create({ pedidoId: pedido3.id, entregadorId: entregador3.id, inicio_entrega: new Date(), fim_entrega: new Date() });
-        const entrega4 = await Entrega.create({ pedidoId: pedido4.id, entregadorId: entregador4.id, inicio_entrega: new Date(), fim_entrega: new Date() });
+        const inicio1 = await new Date();
+        const fim1 = await new Date(inicio1.getTime() + 10 * 60 * 1000);
+        const entrega1 = await Entrega.create({ pedidoId: pedido1.id, entregadorId: entregador1.id, inicio_entrega: inicio1, fim_entrega: fim1 });
+
+        const inicio2 = await new Date();
+        const fim2 = await new Date(inicio2.getTime() + 15 * 60 * 1000);
+        const entrega2 = await Entrega.create({ pedidoId: pedido2.id, entregadorId: entregador2.id, inicio_entrega: inicio2, fim_entrega: fim2 });
+
+        const inicio3 = await new Date();
+        const fim3 = await new Date(inicio3.getTime() + 20 * 60 * 1000);
+        const entrega3 = await Entrega.create({ pedidoId: pedido3.id, entregadorId: entregador3.id, inicio_entrega: inicio3, fim_entrega: fim3 });
+
+        const inicio4 = await new Date();
+        const fim4 = await new Date(inicio4.getTime() + 40 * 60 * 1000);
+        const entrega4 = await Entrega.create({ pedidoId: pedido4.id, entregadorId: entregador4.id, inicio_entrega: inicio4, fim_entrega: fim4 });
+
+        const inicio5 = await new Date();
+        const fim5 = await new Date(inicio5.getTime() + 2 * 60 * 60 * 1000);
+        const entrega5 = await Entrega.create({ pedidoId: pedido1.id, entregadorId: entregador1.id, inicio_entrega: inicio5, fim_entrega: fim5 });
+
     });
 }
 
