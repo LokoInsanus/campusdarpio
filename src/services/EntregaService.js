@@ -108,8 +108,22 @@ class EntregaService {
       }
     );
 
-    return resultados;
+    // Formata tempo médio em horas, minutos e segundos
+    return resultados.map(r => {
+      const totalSeconds = Math.round(r.tempo_medio_segundos || 0);
+
+      const horas = Math.floor(totalSeconds / 3600);
+      const minutos = Math.floor((totalSeconds % 3600) / 60);
+      const segundos = totalSeconds % 60;
+
+      return {
+        entregador: r.entregador,
+        tempo_medio_segundos: totalSeconds,
+        tempo_formatado: `${horas}h ${minutos}m ${segundos}s`
+      };
+    });
   }
+
 
 
   static async verificarRegrasDeNegocio(req) {
