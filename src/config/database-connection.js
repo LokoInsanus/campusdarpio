@@ -120,7 +120,7 @@ function databaseInserts() {
         const entrega4 = await Entrega.create({ pedidoId: pedido4.id, entregadorId: entregador4.id, inicio_entrega: inicio4, fim_entrega: fim4 });
 
         const inicio5 = await new Date();
-        const fim5 = await new Date(inicio5.getTime() + 2 * 60 * 60 * 1000);
+        const fim5 = await new Date(inicio5.getTime() + 10 * 60 * 1000);
         const entrega5 = await Entrega.create({ pedidoId: pedido1.id, entregadorId: entregador1.id, inicio_entrega: inicio5, fim_entrega: fim5 });
 
     });
