@@ -36,7 +36,7 @@ Funcionario.associate(sequelize.models);
 Pedido.associate(sequelize.models);
 Refeicao.associate(sequelize.models);
 
-databaseInserts();
+// databaseInserts();
 
 function databaseInserts() {
     sequelize.sync({ force: true }).then(async () => {
@@ -102,7 +102,7 @@ function databaseInserts() {
         const pedido3 = await Pedido.create({ clienteId: cliente3.id, cardapioId: cardapio3.id, refeicaoId: refeicao3.id, bebidaId: bebida3.id, dataHora: new Date(), campusId: campus3.id, blocoId: bloco3.id });
         const pedido4 = await Pedido.create({ clienteId: cliente4.id, cardapioId: cardapio4.id, refeicaoId: refeicao4.id, bebidaId: bebida4.id, dataHora: new Date(), campusId: campus4.id, blocoId: bloco4.id });
         const pedido5 = await Pedido.create({ clienteId: cliente1.id, cardapioId: cardapio1.id, refeicaoId: refeicao1.id, bebidaId: bebida1.id, dataHora: new Date(), campusId: campus1.id, blocoId: bloco1.id });
-        
+
 
         const inicio1 = await new Date();
         const fim1 = await new Date(inicio1.getTime() + 10 * 60 * 1000);
